@@ -3,10 +3,11 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://dmeowmixer:saltnpepper@ds063870.mongo.com:63870/winharder');
 var bodyParser = require("body-parser");
-
-app.use(express.static('public'));
+app.use(express.static(__dirname + '../'));
+app.set('views', __dirname + '/../views');
+app.engine('html', require('jade').__express);
+app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 module.exports = app;
 
@@ -15,7 +16,9 @@ module.exports = app;
 GET REQUEST to view list of gallery photos
 
 */
-app.get('./', function (req, res){
+app.get('/', function (req, res){
+  res.render("index.jade")
+   
 
 
 
