@@ -13,7 +13,11 @@
   "author": "",
   "license": "ISC",
   "bugs": {
+
     "url": "https://github.com/fobabett/Express-Gallery/issues"
   },
-  "homepage": "https://github.com/fobabett/Express-Gallery"
+  "homepage": "https://github.com/fobabett/Express-Gallery",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  }
 }
