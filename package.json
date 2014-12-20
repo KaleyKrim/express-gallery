@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fobabett/Express-Gallery",
   "dependencies": {
-    "express": "^4.10.6"
+    "express": "^4.10.6",
+    "gulp": "^3.8.10"
   }
 }
