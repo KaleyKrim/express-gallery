@@ -1,23 +1,23 @@
+
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var server = require('./server');
+var server = require('./app/server/app.js');
 
 gulp.task('styles', function () {
-  return gulp.src('./sass/*.scss')
+  return gulp.src('./app/sass/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('./css'));
+      .pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('watch_styles', function () {
-  gulp.watch('./sass/**/*.scss', ['styles']);
-  gulp.watch('*.html', notifyLiveReload);
-  gulp.watch('css/*.css', notifyLiveReload);
+  gulp.watch('./app/sass/**/*.scss', ['styles']);
+  gulp.watch('./app/*.html', notifyLiveReload);
+  gulp.watch('./app/css/*.css', notifyLiveReload);
 })
 
 gulp.task('express', function() {
-  var app = server.app;
-  app.use(require('connect-livereload')({port: 35729}));
-  app.listen(4000);
+  server.use(require('connect-livereload')({port: 35729}));
+  server.listen(4000);
 });
 
 function notifyLiveReload(event) {
@@ -37,3 +37,4 @@ gulp.task('livereload', function() {
 });
 
 gulp.task('default', ['watch_styles','express','livereload']);
+
