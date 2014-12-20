@@ -1,18 +1,27 @@
 var express = require('express');
 var app = express();
-var fs = require('fs');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://dmeowmixer:saltnpepper@ds063870.mongo.com:63870/winharder');
+var bodyParser = require("body-parser");
+
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
+var server = app.listen(3000, function (){
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port)
+});
 
 /* 
 
 GET REQUEST to view list of gallery photos
 
 */
-app.get('/items', function (req, res){
-  if (err) {
-    throw err;
-  }
+app.get('./', function (req, res){
+
+
 
 })
 
@@ -50,10 +59,8 @@ POST to create a new gallery photo
 
 */
 
-app.post('/items', function (req, res){
-  if (err) {
-    throw err;
-  }
+app.post('./', function (req, res){
+
   
 })
 
@@ -84,9 +91,7 @@ by id param
 DELETE gallery/:id to delete single photo
 
 */ 
-app.delete('/items', function (req, res){
-  if (err) {
-    throw err;
-  }
+app.delete('./', function (req, res){
+
   
 })
