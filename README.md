@@ -35,3 +35,10 @@ Any user should be able to access these routes:
 Your app should be stored in subdirectory `/app`.  
 The layout of the app must match the layouts included in `/layouts`.  
 Match the layout as close as you can, using free and open fonts and graphics.
+
+---
+
+#### Layout
+hard because  
+does not have tablet layout  
+uses a background image that is not included, you will have to find something similar (subtlepatterns.com)  
