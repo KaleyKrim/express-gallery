@@ -10,7 +10,7 @@ body
       .row
         for image in images
           .large-12.columns
-            img(src=image.imageURL)
+            //- img(src=image.imageURL)
           .large-12.columns
             p= image.description
 
@@ -25,10 +25,8 @@ body
               p= image.description
           .large-12.columns
             img(src=image.imageURL)
-              image.description
+              p=image.description
   a(href="/new_photo") Add a new photo!
   #footer
   script(src='/js/jquery.js')
   script(src='/js/client.js')
-
-
