@@ -17,7 +17,15 @@
   },
   "homepage": "https://github.com/fobabett/Express-Gallery",
   "dependencies": {
+    "body-parser": "^1.10.0",
+    "connect-livereload": "^0.5.2",
     "express": "^4.10.6",
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "jade": "^1.8.2",
+    "mongoose": "^3.8.21",
+    "tiny-lr": "^0.1.4"
+  },
+  "devDependencies": {
+    "gulp-sass": "^1.2.4"
   }
 }

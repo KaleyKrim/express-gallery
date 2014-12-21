@@ -11,15 +11,14 @@ var Schema = mongoose.Schema;
 //  create random table to save to.
 
 
-app.use(express.static('public'));
+
+app.use(express.static(__dirname + '../'));
+app.set('views', __dirname + '/../views');
+app.engine('html', require('jade').__express);
+app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-var server = app.listen(3000, function (){
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port)
-});
+module.exports = app;
 
 var Image = mongoose.model('image', {
   imageURL: String
@@ -30,6 +29,17 @@ var Image = mongoose.model('image', {
 GET REQUEST to view list of gallery photos
 
 */
+
+app.get('/', function (req, res){
+  Image.find({}, function (err, docs){
+    if (err) {
+      throw err;
+    }
+    res.render("index.jade",{
+      images: docs
+    });
+  });
+});
 
 
 
@@ -47,7 +57,7 @@ should include a edit
 app.get('/gallery/:id', function (req, res){
 
 
-})
+});
 
 
 
@@ -62,21 +72,7 @@ description: text area
 
 */
 
-app.get('/', function (req, res){
-  // var newImage = new Image({imageURL : '/testURL'});
-  // console.log(newImage);
-  // newImage.save(function (err){
-  //   if (err){
-  //     console.log(err);
-  //   }
-  // });
-  Image.find({}, function (err, docs){
-    if (err) {
-      throw err;
-    }
-    res.render(docs);
-  });
-});
+
 
 
 /*
@@ -111,7 +107,7 @@ by id param
 
 app.put('/gallery/:id', function (req, res){
 
-})
+});
 
 /*
 
