@@ -30,6 +30,7 @@ GET REQUEST to view list of gallery photos
 
 */
 
+
 app.get('/', function (req, res){
   Image.find({}, function (err, docs){
     if (err) {
@@ -71,7 +72,6 @@ Link: text img url
 description: text area
 
 */
-
 
 
 
@@ -117,4 +117,11 @@ DELETE gallery/:id to delete single photo
 app.delete('/', function (req, res){
 
   
+});
+
+
+var server = app.listen(3000, function (){
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port)
 });
