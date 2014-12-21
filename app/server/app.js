@@ -12,7 +12,7 @@ var Schema = mongoose.Schema;
 
 
 
-app.use(express.static(__dirname + '../'));
+app.use(express.static(__dirname + '/../')); 
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
