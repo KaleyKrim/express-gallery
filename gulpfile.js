@@ -38,5 +38,3 @@ gulp.task('livereload', function() {
 
 
 gulp.task('default', ['styles','watch_styles','express','livereload']);
-
-
