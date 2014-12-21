@@ -44,7 +44,9 @@ app.get('/', function (req, res){
 
 
 
-
+app.get('/new_photo', function (req, res){
+  res.render("newphoto.jade");
+})
 
 
 /*
@@ -55,9 +57,19 @@ should include a edit
 
 */
 
+// params id accesses whatever is after the gallery/
 app.get('/gallery/:id', function (req, res){
-
-
+  Image.findOne({_id:req.params.id},function (err, image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      res.render("show.jade", {image: image});
+    }
+    else {
+      res.send(404);
+    }
+  })
 });
 
 
