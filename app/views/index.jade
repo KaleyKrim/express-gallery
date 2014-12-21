@@ -8,18 +8,10 @@ head
       #content
         #single.clearfix
           .row
-            .large-12.columns
-              img(src='http://placehold.it/350x150')
-            .large-12.columns
-              p
-        #three.clearfix
-          .row
-            .large-12.columns
-              img(src='http://placehold.it/350x150')
-            .large-12.columns
-              img(src='http://placehold.it/350x150')
-            .large-12.columns
-              img(src='http://placehold.it/350x150')
+            for image in images
+              .large-12.columns
+                img(src=image.imageURL)
+              .large-12.columns
+                p= image.description
       #footer
       script(src='/js/client.js')
-      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")

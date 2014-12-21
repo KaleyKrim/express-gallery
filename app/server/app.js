@@ -30,6 +30,7 @@ GET REQUEST to view list of gallery photos
 
 */
 
+
 app.get('/', function (req, res){
   Image.find({}, function (err, docs){
     if (err) {
@@ -71,7 +72,6 @@ Link: text img url
 description: text area
 
 */
-
 
 
 
