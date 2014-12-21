@@ -1,9 +1,22 @@
 var express = require('express');
 var app = express();
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://dmeowmixer:saltnpepper@ds063870.mongo.com:63870/winharder');
 var bodyParser = require("body-parser");
+<<<<<<< HEAD
 app.use(express.static(__dirname + '/../'));
+=======
+var mongoose = require('mongoose');
+var secret = process.env.DBPASS;
+mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
+var Schema = mongoose.Schema;
+
+
+// new schema and model
+//  create random table to save to.
+
+
+
+app.use(express.static(__dirname + '../'));
+>>>>>>> fobabett_master
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
@@ -11,18 +24,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = app;
 
+var Image = mongoose.model('image', {
+  imageURL: String
+});
+
 /* 
 
 GET REQUEST to view list of gallery photos
 
 */
+
+
 app.get('/', function (req, res){
-  res.render("index.jade")
-   
+  Image.find({}, function (err, docs){
+    if (err) {
+      throw err;
+    }
+    res.render("index.jade",{
+      images: docs
+    });
+  });
+});
 
-
-
-})
 
 
 
@@ -36,6 +59,10 @@ should include a edit
 
 */
 
+app.get('/gallery/:id', function (req, res){
+
+
+});
 
 
 
@@ -58,10 +85,8 @@ POST to create a new gallery photo
 
 */
 
-app.post('./', function (req, res){
-
-  
-})
+app.post('/',function (req, res){
+});
 
 /*
 
@@ -84,13 +109,22 @@ by id param
 
 */
 
+app.put('/gallery/:id', function (req, res){
+
+});
 
 /*
 
 DELETE gallery/:id to delete single photo
 
 */ 
-app.delete('./', function (req, res){
+app.delete('/', function (req, res){
 
   
-})
+});
+
+var server = app.listen(3000, function (){
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port)
+});
