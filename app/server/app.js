@@ -44,7 +44,9 @@ app.get('/', function (req, res){
 
 
 
-
+app.get('/new_photo', function (req, res){
+  res.render("newphoto.jade");
+})
 
 
 /*
