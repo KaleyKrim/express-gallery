@@ -1,6 +1,28 @@
 @import "./settings";
 @import "../../bower_components/foundation/scss/foundation";
+@import url("http://fonts.googleapis.com/css?family=Oswald");
 
 body {
-  background-color: #272821;
+  h1#logo {
+    text-transform: uppercase;
+    color: #7E797F;
+    font-family: 'Oswald', sans-serif;
+  }
+  background-color: #FFFFFF;
+  text-align: center;
+  form {
+    color: #7E797F;
+    // width: 50%;
+    display: block;
+    button {
+      background-color: #7E797F;
+      height: 50px;
+      &:hover {
+        color: #7E797F;
+        background-color: #FFFFFF;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+    }
+  }
 }
