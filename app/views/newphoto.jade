@@ -6,9 +6,9 @@ head
 body
   form(action="/gallery", method="post")
     label(for="POST-name") Photo Author
-    input(id="POST-author", type="text", name="photoauthor", value="")
+    input(id="POST-author", type="text", name="author", value="")
     label(for="POST-name") Photo Link
-    input(id="POST-link", type="text", name="photolink", value="")
+    input(id="POST-link", type="text", name="url", value="")
     label(for="POST-name") Photo Description
-    input(id="POST-description", type="text", name="photodescription", value="")
-  button(type="button") Save to gallery
+    input(id="POST-description", type="text", name="description", value="")
+    button(type="submit") Save to gallery
