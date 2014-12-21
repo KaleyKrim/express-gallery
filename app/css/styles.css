@@ -2588,7 +2588,7 @@ form .row input.column, form .row input.columns, form .row textarea.column, form
 
 /* Label Styles */
 label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #4d4d4d;
   cursor: pointer;
   display: block;
@@ -2618,7 +2618,7 @@ label {
   border-style: solid;
   border-width: 1px;
   overflow: hidden;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   height: 1.9375rem;
   line-height: 1.9375rem; }
 
