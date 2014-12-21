@@ -12,7 +12,7 @@ var Schema = mongoose.Schema;
 
 
 
-app.use(express.static(__dirname + '../'));
+app.use(express.static(__dirname + '/../')); 
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
@@ -21,7 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 module.exports = app;
 
 var Image = mongoose.model('image', {
-  imageURL: String
+  author: String,
+  url: String,
+  description: String
 });
 
 /* 
@@ -86,14 +88,23 @@ description: text area
 */
 
 
-
 /*
 
 POST to create a new gallery photo
 
 */
 
-app.post('/',function (req, res){
+app.post('/gallery',function (req, res){
+  var image = new Image(req.body);
+  image.save(function (err, image){
+    if (err){
+      throw err;
+    }
+    res.redirect('/');
+  });
+
+
+
 });
 
 /*
