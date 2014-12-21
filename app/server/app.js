@@ -107,36 +107,59 @@ app.post('/gallery',function (req, res){
 
 });
 
-/*
 
+/*
 GET gallery :id/edit  to see edit form gallery photo indenfified
 by id param
 fields author:
 link:
 description:
-
 */
+// get the image by id, render edit template edit.jade, pass the image as a local (just like other route)
+app.get('/gallery/:id/edit', function (req, res){
+  Image.findOne({_id:req.params.id},function (err, image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      res.render("edit.jade", {image: image});
+    }
+  })
+})
 
 
 
 
 
-/*
 
-PUt gallery/:id updates single gallery photo identified
-by id param
+// ?PUt gallery/:id updates single gallery photo identifiedy id param
 
-*/
+
 
 app.put('/gallery/:id', function (req, res){
+  console.log(req.params)
+  Image.findOne({_id:req.params.id},function (err, image){
+    if (err){
+      throw err;
+    }
+    if (image){
 
+      // image.url = 
+      // image.author = 
+      // image.description =
+      res.render("edit.jade", {image: image});
+    }
+    else {
+      res.send(404);
+    }
+  })
 });
 
-/*
 
-DELETE gallery/:id to delete single photo
 
-*/ 
+// DELETE gallery/:id to delete single photo
+
+ 
 app.delete('/', function (req, res){
 
   

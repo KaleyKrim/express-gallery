@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title EditPhoto
+body
+  form(action='/gallery/'+image.id,method="put")
+    label(for="POST-name") Photo Author
+    input(id="POST-author", type="text", name="author", value=image.author)
+    label(for="POST-name") Photo Link
+    input(id="POST-link", type="text", name="url", value=image.url)
+    label(for="POST-name") Photo Description
+    input(id="POST-description", type="text", name="description", value=image.description)
+    button(type="submit") Commit the edit!
