@@ -44,7 +44,9 @@ app.get('/', function (req, res){
 
 
 
-
+app.get('/new_photo', function (req, res){
+  res.render("newphoto.jade");
+})
 
 
 /*
@@ -118,7 +120,6 @@ app.delete('/', function (req, res){
 
   
 });
-
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
