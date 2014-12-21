@@ -1,9 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
-<<<<<<< HEAD
-app.use(express.static(__dirname + '/../'));
-=======
 var mongoose = require('mongoose');
 var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
@@ -15,8 +12,7 @@ var Schema = mongoose.Schema;
 
 
 
-app.use(express.static(__dirname + '../'));
->>>>>>> fobabett_master
+app.use(express.static(__dirname + '/../')); 
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
