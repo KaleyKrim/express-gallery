@@ -66,7 +66,13 @@ app.get('/gallery/:id', function (req, res){
       throw err;
     }
     if (image){
-      res.render("show.jade", {image: image});
+
+      Image.find({},function(err,sidebarimages){
+        if (err){
+          throw err;
+        }
+        res.render("show.jade", {image: image, sidebarimages: sidebarimages});
+      });   
     }
     else {
       res.send(404);
