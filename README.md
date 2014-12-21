@@ -1,5 +1,8 @@
 Express-Gallery
 ===============
+To run this app, go to app/server/ then run `DBPASS="(yourpasshur)" nodemon app.js`
+
+
 
 MEH stack - Mongo Express and HTML5 
 
