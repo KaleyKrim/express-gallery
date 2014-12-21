@@ -3,15 +3,16 @@ head
   link(rel="stylesheet", type="text/css", href="/css/style.css")
   meta(charset="UTF-8")
   title Express Gallery
-  body
-    #header
-    #content
-      #single.clearfix
-        .row
-          for image in images
-            .large-12.columns
-              img(src=image.imageURL)
-            .large-12.columns
-              p= image.description
-    #footer
-    script(src='/js/client.js')
+body
+  #header
+  #content
+    #single.clearfix
+      .row
+        for image in images
+          .large-12.columns
+            img(src=image.imageURL)
+          .large-12.columns
+            p= image.description
+  a(href="/new_photo") Add a new photo!
+  #footer
+  script(src='/js/client.js')

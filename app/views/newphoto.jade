@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title NewPhoto
+body
+  form(action="/gallery", method="post")
+    label(for="POST-name") Photo Author
+    input(id="POST-author", type="text", name="photoauthor", value="")
+    label(for="POST-name") Photo Link
+    input(id="POST-link", type="text", name="photolink", value="")
+    label(for="POST-name") Photo Description
+    input(id="POST-description", type="text", name="photodescription", value="")
+  button(type="button") Save to gallery
