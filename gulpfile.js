@@ -11,7 +11,7 @@ gulp.task('styles', function () {
 
 gulp.task('watch_styles', function () {
   gulp.watch('./app/sass/**/*.scss', ['styles']);
-  gulp.watch('./app/*.html', notifyLiveReload);
+  gulp.watch('./app/views/*.jade', notifyLiveReload);
   gulp.watch('./app/css/*.css', notifyLiveReload);
 })
 
@@ -37,4 +37,3 @@ gulp.task('livereload', function() {
 });
 
 gulp.task('default', ['watch_styles','express','livereload']);
-
