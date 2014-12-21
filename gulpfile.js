@@ -6,7 +6,7 @@ var server = require('./app/server/app.js');
 gulp.task('styles', function () {
   return gulp.src('./app/sass/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('./app/css'));
+      .pipe(gulp.dest('./app/css/'));
 });
 
 gulp.task('watch_styles', function () {
@@ -36,5 +36,5 @@ gulp.task('livereload', function() {
   tinylr.listen(35729);
 });
 
-gulp.task('default', ['watch_styles','express','livereload']);
+gulp.task('default', ['styles','watch_styles','express','livereload']);
 

@@ -3,7 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://dmeowmixer:saltnpepper@ds063870.mongo.com:63870/winharder');
 var bodyParser = require("body-parser");
-app.use(express.static(__dirname + '../'));
+app.use(express.static(__dirname + '/../'));
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
