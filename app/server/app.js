@@ -28,9 +28,7 @@ var Image = mongoose.model('image', {
 });
 
 /* 
-
 GET REQUEST to view list of gallery photos
-
 */
 
 
@@ -53,11 +51,9 @@ app.get('/new_photo', function (req, res){
 
 
 /*
-
 GET /gallery/:id to see single photo
 Each photo should include Delete link for itself
 should include a edit 
-
 */
 
 // params id accesses whatever is after the gallery/
@@ -85,20 +81,16 @@ app.get('/gallery/:id', function (req, res){
 
 
 /*
-
 GET new photo see new photo form
 need
 Author: text
 Link: text img url
 description: text area
-
 */
 
 
 /*
-
 POST to create a new gallery photo
-
 */
 
 app.post('/gallery',function (req, res){

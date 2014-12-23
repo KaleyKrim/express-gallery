@@ -27,4 +27,14 @@ body {
       }
     }
   }
+  .button {
+    background-color: #7E797F;
+    height: 50px;
+    &:hover {
+      color: #7E797F;
+      background-color: #FFFFFF;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+  }
 }

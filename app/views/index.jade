@@ -10,13 +10,18 @@ body
   #content
     #single.clearfix
       .row
-        //- for image in images
+        for image in images
           .large-12.columns
-            //- img(src=image.imageURL)
+            img(src=image.url)
+            a.button(href="/gallery/"+image.id) View this photo
           .large-12.columns
             p= image.description
+            a.button(href="/gallery/"+image.id+"/edit") Edit this photo!
+            form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
+              button.button(type="submit") Delete this photo!
 
-  a(href="/new_photo") Add a new photo!
+
+  a.button(href="/new_photo") Add a new photo!
+
   #footer
   script(src='/js/jquery.js')
-  
