@@ -6063,7 +6063,7 @@ body {
   background-color: #FFFFFF;
   background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center; }
-  body .header img {
+  body .header img.add_icon {
     width: 20px;
     fill: #7E797F;
     position: absolute;
@@ -6073,13 +6073,16 @@ body {
     position: relative;
     text-transform: uppercase;
     color: #7E797F;
-    font-family: 'Oswald', sans-serif; }
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px; }
   body .img_wrapper {
-    position: relative; }
+    position: relative;
+    margin: 30px; }
     body .img_wrapper p {
       visibility: hidden;
       position: absolute;
-      top: 30px;
+      z-index: 10;
+      top: 40px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -6088,11 +6091,14 @@ body {
       font-family: 'Oswald', sans-serif;
       color: #FFFFFF; }
     body .img_wrapper:hover img {
-      box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 10px black;
       opacity: 0.3; }
     body .img_wrapper:hover p {
       visibility: visible;
       opacity: 1; }
+  body .img_options img.edit_icon {
+    width: 20px;
+    fill: #7E797F; }
   body form {
     color: #7E797F;
     display: block; }

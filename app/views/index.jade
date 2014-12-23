@@ -7,7 +7,7 @@ body
   .header 
     h1.logo _architekt
     a(href="/new_photo")
-      img(src="/layout/svg/add.svg")
+      img.add_icon(src="/layout/svg/add.svg")
   #content
     #single.clearfix
       .row
@@ -16,7 +16,7 @@ body
             .img_wrapper
               a(href="/gallery/"+image.id)
                 img(src=image.url)
-                p.view_text view  
+                p view  
           //- .large-12.columns
             p= image.description
             a(href="/gallery/"+image.id+"/edit") Edit 
