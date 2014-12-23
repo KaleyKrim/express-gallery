@@ -5,7 +5,6 @@ head
   title EditPhoto
 body
   form(action='/gallery/'+image.id+'?_method=PUT', method="POST")
-    //- input(type='hidden', name='_method', value='PUT')
     label(for="POST-name") Photo Author
     input(id="POST-author", type="text", name="author", value=image.author)
     label(for="POST-name") Photo Link

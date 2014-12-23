@@ -170,10 +170,17 @@ app.put('/gallery/:id', function (req, res){
 
 
 // DELETE gallery/:id to delete single photo
-
+// - `DELETE /gallery/:id` to delete a single gallery photo identified by the `:id` param
  
-app.delete('/', function (req, res){
-
+app.delete('/gallery/:id', function (req, res){
+  Image.findOneAndRemove({_id:req.params.id},function (err,image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      res.redirect(302,"/")
+    }
+  })
   
 });
 
