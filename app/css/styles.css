@@ -6069,6 +6069,8 @@ body {
     position: absolute;
     top: 0;
     right: 16px; }
+    body .header img.add_icon:hover {
+      opacity: 0.3; }
   body .header h1.logo {
     position: relative;
     text-transform: uppercase;

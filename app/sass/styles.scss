@@ -63,6 +63,9 @@ body {
       position: absolute;
       top: 0;
       right: 16px;
+      &:hover {
+        opacity: 0.3;
+      }
     }
     h1.logo {
       position: relative;
