@@ -6096,9 +6096,33 @@ body {
     body .img_wrapper:hover p {
       visibility: visible;
       opacity: 1; }
-  body .img_options img.edit_icon {
-    width: 20px;
-    fill: #7E797F; }
+  body .img_options {
+    clear: both;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto; }
+    body .img_options img.edit_icon {
+      width: 30px;
+      fill: #7E797F;
+      float: left;
+      display: inline;
+      box-sizing: border-box;
+      margin-left: 35%; }
+      body .img_options img.edit_icon:hover {
+        opacity: 0.3; }
+    body .img_options button.delete_icon {
+      background-image: url('/layout/svg/delete.svg');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-color: none;
+      border: none;
+      width: 10px;
+      height: 10px;
+      float: right;
+      box-sizing: border-box;
+      margin-right: 35%; }
+      body .img_options button.delete_icon:hover {
+        opacity: 0.3; }
   body form {
     color: #7E797F;
     display: block; }

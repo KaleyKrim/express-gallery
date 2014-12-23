@@ -17,9 +17,12 @@ body
         .large-12.columns
           .img_wrapper
             img(src=image.url)
-          .img_options
+        .large-12.columns   
+          .img_options.clearfix
             a(href="/gallery/"+image.id+"/edit")
-              img.edit_icon(src="/layout/svg/edit.svg")  
+              img.edit_icon(src="/layout/svg/edit.svg")
+            form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
+              button.delete_icon(type="submit")  
           p= image.description
 
     #triple.clearfix
