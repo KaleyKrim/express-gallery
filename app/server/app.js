@@ -7,7 +7,7 @@ mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/wi
 var Schema = mongoose.Schema;
 var methodOverride = require('method-override')
 
-
+// learn about middleware express and routing
 // new schema and model
 //  create random table to save to.
 
@@ -67,8 +67,8 @@ app.get('/gallery/:id', function (req, res){
       throw err;
     }
     if (image){
-
-      Image.find({},function(err,sidebarimages){
+// find all images except for the image that matches :id
+      Image.find({_id: {'$ne': req.params.id }},function(err,sidebarimages){
         if (err){
           throw err;
         }
@@ -173,6 +173,7 @@ app.put('/gallery/:id', function (req, res){
 // - `DELETE /gallery/:id` to delete a single gallery photo identified by the `:id` param
  
 app.delete('/gallery/:id', function (req, res){
+  console.log("delete",req.params.id);
   Image.findOneAndRemove({_id:req.params.id},function (err,image){
     if (err){
       throw err;
