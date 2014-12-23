@@ -4,9 +4,10 @@ head
   meta(charset="UTF-8")
   title Express Gallery
 body
-  .header
-    h1.logo 
-      | _architekt
+  .header 
+    h1.logo _architekt
+    a(href="/new_photo")
+      img(src="/layout/svg/add.svg")
   #content
     #single.clearfix
       .row
@@ -23,7 +24,7 @@ body
               button(type="submit") Delete
 
 
-  a(href="/new_photo") Add New
+  //- a(href="/new_photo") Add New
 
   #footer
   script(src='/js/jquery.js')
