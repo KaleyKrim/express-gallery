@@ -1,9 +1,13 @@
 doctype html
 html(lang="en")
 head
+  link(rel="stylesheet", type="text/css", href="/css/style.css")
   meta(charset="UTF-8")
   title EditPhoto
 body
+  .header
+    h1.logo
+      | _architekt
   form(action='/gallery/'+image.id+'?_method=PUT', method="POST")
     label(for="POST-name") Photo Author
     input(id="POST-author", type="text", name="author", value=image.author)
