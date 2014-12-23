@@ -5,11 +5,9 @@ head
   meta(charset="UTF-8")
   title Express Gallery
 body
-<<<<<<< HEAD
-  =image.author
-  =image.url
-  =image.description
-=======
+  //- =image.author
+  //- =image.url
+  //- =image.description
   #header
   #content
     #single.clearfix
@@ -19,20 +17,19 @@ body
         .large-12.columns
           p= image.description
 
-    #triple.clearfix
-      .row
-        for image in sidebarimages
-          .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              p=image.description
+    //- #triple.clearfix
+    //-   .row
+    //-     for image in sidebarimages
+    //-       .large-12.columns
+    //-         img(src=image.image.url)
+    //-           p= image.description
+    //-       .large-12.columns
+    //-         img(src=image.image.url)
+    //-           p= image.description
+    //-       .large-12.columns
+    //-         img(src=image.image.url)
+    //-           p=image.description
   a(href="/new_photo") Add a new photo!
   #footer
   script(src='/js/jquery.js')
   script(src='/js/client.js')
->>>>>>> 229b05228976e1ecc52827589e8ba3e3b22da014

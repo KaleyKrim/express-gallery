@@ -5,13 +5,14 @@ var mongoose = require('mongoose');
 var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
 var Schema = mongoose.Schema;
+var methodOverride = require('method-override')
 
 
 // new schema and model
 //  create random table to save to.
 
 
-
+app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/../')); 
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
@@ -143,17 +144,22 @@ app.get('/gallery/:id/edit', function (req, res){
 
 
 app.put('/gallery/:id', function (req, res){
-  console.log(req.params)
+  console.log(req.body)
   Image.findOne({_id:req.params.id},function (err, image){
     if (err){
       throw err;
     }
     if (image){
+      image.url = req.body.url;
+      image.author = req.body.author;
+      image.description = req.body.description;
+      image.save(function (err, image){
+        if (err){
+          throw err;
+        }
 
-      // image.url = 
-      // image.author = 
-      // image.description =
-      res.render("edit.jade", {image: image});
+      res.redirect(302,"/");
+      })      
     }
     else {
       res.send(404);
