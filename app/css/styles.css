@@ -6034,6 +6034,25 @@ body {
     text-transform: uppercase;
     color: #7E797F;
     font-family: 'Oswald', sans-serif; }
+  body .img_wrapper {
+    position: relative; }
+    body .img_wrapper p {
+      visibility: hidden;
+      position: absolute;
+      top: 30px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      font-size: 50px;
+      font-family: 'Oswald', sans-serif;
+      color: #FFFFFF; }
+    body .img_wrapper:hover img {
+      box-shadow: 0 0 10px #ccc;
+      opacity: 0.3; }
+    body .img_wrapper:hover p {
+      visibility: visible;
+      opacity: 1; }
   body form {
     color: #7E797F;
     display: block; }
@@ -6045,11 +6064,3 @@ body {
         background-color: #FFFFFF;
         box-sizing: border-box;
         margin: 0 auto; }
-  body .button {
-    background-color: #7E797F;
-    height: 50px; }
-    body .button:hover {
-      color: #7E797F;
-      background-color: #FFFFFF;
-      box-sizing: border-box;
-      margin: 0 auto; }

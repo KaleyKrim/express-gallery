@@ -3,6 +3,9 @@
 @import url("http://fonts.googleapis.com/css?family=Oswald");
 
 body {
+  background-color: #FFFFFF;
+  background-image: url('/layout/images/seamless_paper_texture.png');
+  text-align: center;
   .header {
     h1.logo {
       text-transform: uppercase;
@@ -10,9 +13,31 @@ body {
       font-family: 'Oswald', sans-serif;
     }
   }
-  background-color: #FFFFFF;
-  background-image: url('/layout/images/seamless_paper_texture.png');
-  text-align: center;
+  .img_wrapper {
+    position: relative;
+    p {
+      visibility: hidden;
+      position: absolute;
+      top: 30px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      font-size: 50px;
+      font-family: 'Oswald', sans-serif;
+      color: #FFFFFF;
+    }
+    &:hover {
+      img {
+        box-shadow: 0 0 10px #ccc;
+        opacity: 0.3;
+      }
+      p {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
   form {
     color: #7E797F;
     display: block;
@@ -25,16 +50,6 @@ body {
         box-sizing: border-box;
         margin: 0 auto;
       }
-    }
-  }
-  .button {
-    background-color: #7E797F;
-    height: 50px;
-    &:hover {
-      color: #7E797F;
-      background-color: #FFFFFF;
-      box-sizing: border-box;
-      margin: 0 auto;
     }
   }
 }

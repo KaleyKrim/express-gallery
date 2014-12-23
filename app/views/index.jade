@@ -12,8 +12,10 @@ body
       .row
         for image in images
           .large-12.columns
-            a(href="/gallery/"+image.id)
-              img(src=image.url)
+            .img_wrapper
+              a(href="/gallery/"+image.id)
+                img(src=image.url)
+                p.view_text view  
           //- .large-12.columns
             p= image.description
             a(href="/gallery/"+image.id+"/edit") Edit 
