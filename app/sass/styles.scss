@@ -3,10 +3,12 @@
 @import url("http://fonts.googleapis.com/css?family=Oswald");
 
 body {
-  h1#logo {
-    text-transform: uppercase;
-    color: #7E797F;
-    font-family: 'Oswald', sans-serif;
+  .header {
+    h1.logo {
+      text-transform: uppercase;
+      color: #7E797F;
+      font-family: 'Oswald', sans-serif;
+    }
   }
   background-color: #FFFFFF;
   background-image: url('/layout/images/seamless_paper_texture.png');

@@ -5,8 +5,9 @@ head
   meta(charset="UTF-8")
   title NewPhoto
 body
-  h1#logo 
-    | _architekt
+  .header
+    h1.logo 
+      | _architekt
   form(action="/gallery", method="post")
     label(for="POST-name") Photo Author
     input(id="POST-author", type="text", name="author", value="")

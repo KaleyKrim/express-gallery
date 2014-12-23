@@ -6030,7 +6030,7 @@ body {
   background-color: #FFFFFF;
   background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center; }
-  body h1#logo {
+  body .header h1.logo {
     text-transform: uppercase;
     color: #7E797F;
     font-family: 'Oswald', sans-serif; }
