@@ -5,13 +5,14 @@ var mongoose = require('mongoose');
 var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
 var Schema = mongoose.Schema;
+var methodOverride = require('method-override')
 
-
+// learn about middleware express and routing
 // new schema and model
 //  create random table to save to.
 
 
-
+app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/../')); 
 app.set('views', __dirname + '/../views');
 app.engine('html', require('jade').__express);
@@ -66,8 +67,8 @@ app.get('/gallery/:id', function (req, res){
       throw err;
     }
     if (image){
-
-      Image.find({},function(err,sidebarimages){
+// find all images except for the image that matches :id
+      Image.find({_id: {'$ne': req.params.id }},function(err,sidebarimages){
         if (err){
           throw err;
         }
@@ -113,38 +114,74 @@ app.post('/gallery',function (req, res){
 
 });
 
-/*
 
+/*
 GET gallery :id/edit  to see edit form gallery photo indenfified
 by id param
 fields author:
 link:
 description:
-
 */
+// get the image by id, render edit template edit.jade, pass the image as a local (just like other route)
+app.get('/gallery/:id/edit', function (req, res){
+  Image.findOne({_id:req.params.id},function (err, image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      res.render("edit.jade", {image: image});
+    }
+  })
+})
 
 
 
 
 
-/*
 
-PUt gallery/:id updates single gallery photo identified
-by id param
+// ?PUt gallery/:id updates single gallery photo identifiedy id param
 
-*/
+
 
 app.put('/gallery/:id', function (req, res){
+  console.log(req.body)
+  Image.findOne({_id:req.params.id},function (err, image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      image.url = req.body.url;
+      image.author = req.body.author;
+      image.description = req.body.description;
+      image.save(function (err, image){
+        if (err){
+          throw err;
+        }
 
+      res.redirect(302,"/");
+      })      
+    }
+    else {
+      res.send(404);
+    }
+  })
 });
 
-/*
 
-DELETE gallery/:id to delete single photo
 
-*/ 
-app.delete('/', function (req, res){
-
+// DELETE gallery/:id to delete single photo
+// - `DELETE /gallery/:id` to delete a single gallery photo identified by the `:id` param
+ 
+app.delete('/gallery/:id', function (req, res){
+  console.log("delete",req.params.id);
+  Image.findOneAndRemove({_id:req.params.id},function (err,image){
+    if (err){
+      throw err;
+    }
+    if (image){
+      res.redirect(302,"/")
+    }
+  })
   
 });
 

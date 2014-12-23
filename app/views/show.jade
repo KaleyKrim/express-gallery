@@ -5,6 +5,9 @@ head
   meta(charset="UTF-8")
   title Express Gallery
 body
+  //- =image.author
+  //- =image.url
+  //- =image.description
   #header
   #content
     #single.clearfix
@@ -18,15 +21,9 @@ body
       .row
         for image in sidebarimages
           .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              p=image.description
+            img(src=image.url)
+            p= image.description
+
   a(href="/new_photo") Add a new photo!
   #footer
   script(src='/js/jquery.js')
-  script(src='/js/client.js')
