@@ -11,19 +11,20 @@ body
     a(href="/")
       h1.logo _architekt
     a(href="/new_photo")
-      img.add_icon(src="/layout/svg/add.svg")  
+      img.add_icon(src="/layout/svg/add.svg") 
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula. 
   #content.clearfix
     #selected_photo
       .row
         .large-12.columns
           .img_wrapper
-            img(src=image.url)
+            img.main(src=image.url)
+            p.img_info= image.description    
           .img_options.clearfix
             a(href="/gallery/"+image.id+"/edit")
               img.edit_icon(src="/layout/svg/edit.svg")
             form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
               button.delete_icon(type="submit")  
-          p.img_info= image.description
     #sidebar
       .row
         for image in sidebarimages
@@ -32,7 +33,7 @@ body
               a(href="/gallery/"+image.id)
                 img.view_img(src=image.url)
                 p.view_text view   
-            p.img_info= image.author
+              p.img_info= image.author
 
   #footer
   script(src='/js/jquery.js')

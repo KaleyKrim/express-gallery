@@ -6063,26 +6063,41 @@ body {
   background-color: #FFFFFF;
   text-align: center; }
   body .header {
-    margin: 30px; }
+    margin: 30px;
+    margin-top: 60px; }
     body .header img.add_icon {
-      width: 20px;
+      width: 30px;
       fill: #7E797F;
       position: absolute;
-      top: 0;
-      right: 16px; }
+      top: 10px;
+      right: 30px; }
       body .header img.add_icon:hover {
         opacity: 0.3; }
     body .header h1.logo {
+      padding-top: 15px;
+      border-top: 2px solid #F1F1F1;
+      text-align: left;
+      margin-left: 100px;
       position: relative;
       text-transform: uppercase;
       color: #7E797F;
       font-family: 'Oswald', sans-serif;
       font-size: 50px; }
+    body .header p {
+      position: absolute;
+      top: 10px;
+      right: 140px;
+      color: #C7C5BE;
+      font-size: 12px;
+      font-family: 'Oswald', sans-serif;
+      text-align: left;
+      width: 15%;
+      border-left: 2px solid #F1F1F1;
+      padding-left: 10px; }
   body #content {
-    border: 2px solid green; }
-    body #content #featured_photo {
-      width: 50%;
-      border: 2px solid red; }
+    clear: both #fea tured_photo;
+    clear-width: 50%;
+    clear-border: 2px solid red; }
     body #content #thumbnail_photos {
       border: 2px solid blue; }
     body #content .img_wrapper {
@@ -6097,7 +6112,7 @@ body {
         left: 0;
         right: 0;
         opacity: 0;
-        font-size: 50px;
+        font-size: 30px;
         font-family: 'Oswald', sans-serif;
         color: #FFFFFF; }
       body #content .img_wrapper:hover img.view_img {
@@ -6108,8 +6123,9 @@ body {
         opacity: 1; }
     body #content p.img_info {
       font-family: 'Oswald', sans-serif;
-      font-size: 12px;
-      color: #7E797F; }
+      font-size: 10px;
+      color: #7E797F;
+      text-align: left; }
     body #content .img_options {
       clear: both;
       width: 350px;
@@ -6139,12 +6155,16 @@ body {
           opacity: 0.3; }
     body #content #selected_photo {
       float: left;
-      border-sizing: border-box;
-      width: 70%; }
+      box-sizing: border-box;
+      width: 70%;
+      padding-left: 100px;
+      margin-right: 0px; }
     body #content #sidebar {
       float: right;
-      border-sizing: border-box;
-      width: 30%; }
+      box-sizing: border-box;
+      width: 30%;
+      padding-right: 100px;
+      margin-left: 0px; }
     body #content form {
       color: #7E797F;
       display: block; }
