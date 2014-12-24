@@ -6062,20 +6062,22 @@ table {
 body {
   background-color: #FFFFFF;
   text-align: center; }
-  body .header img.add_icon {
-    width: 20px;
-    fill: #7E797F;
-    position: absolute;
-    top: 0;
-    right: 16px; }
-    body .header img.add_icon:hover {
-      opacity: 0.3; }
-  body .header h1.logo {
-    position: relative;
-    text-transform: uppercase;
-    color: #7E797F;
-    font-family: 'Oswald', sans-serif;
-    font-size: 50px; }
+  body .header {
+    margin: 30px; }
+    body .header img.add_icon {
+      width: 20px;
+      fill: #7E797F;
+      position: absolute;
+      top: 0;
+      right: 16px; }
+      body .header img.add_icon:hover {
+        opacity: 0.3; }
+    body .header h1.logo {
+      position: relative;
+      text-transform: uppercase;
+      color: #7E797F;
+      font-family: 'Oswald', sans-serif;
+      font-size: 50px; }
   body #content {
     border: 2px solid green; }
     body #content #featured_photo {
@@ -6126,7 +6128,7 @@ body {
         background-image: url('/layout/svg/delete.svg');
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        background-color: #7E797F;
+        background-color: #FFFFFF;
         border: none;
         width: 10px;
         height: 10px;
@@ -6146,10 +6148,10 @@ body {
     body #content form {
       color: #7E797F;
       display: block; }
-      body #content form button {
+      body #content form button#save {
         background-color: #7E797F;
         height: 50px; }
-        body #content form button:hover {
+        body #content form button#save:hover {
           color: #7E797F;
           background-color: #FFFFFF;
           box-sizing: border-box;
