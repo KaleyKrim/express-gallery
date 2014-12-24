@@ -23,7 +23,7 @@ module.exports = app;
 
 var Image = mongoose.model('image', {
   author: String,
-  title: String.
+  title: String,
   url: String,
   description: String
 });

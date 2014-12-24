@@ -19,7 +19,7 @@ body
               a(href="/gallery/"+image.id)
                 img.view_img(src=image.url)
                 p.view_text view
-    #thumbnail_photos
+    .thumbnail_photos
       .row
         for image in images            
           .large-4.columns
@@ -27,7 +27,16 @@ body
               a(href="/gallery/"+image.id)
                 img.view_img(src=image.url) 
                 p.view_text view
-            p.img_info= image.author    
+              p.img_info= image.author  
+    .thumbnail_photos
+      .row
+        for image in images            
+          .large-4.columns
+            .img_wrapper
+              a(href="/gallery/"+image.id)
+                img.view_img(src=image.url) 
+                p.view_text view
+              p.img_info= image.author             
 
   #footer
   script(src='/js/jquery.js')

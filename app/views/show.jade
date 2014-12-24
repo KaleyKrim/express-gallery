@@ -18,8 +18,10 @@ body
       .row
         .large-12.columns
           .img_wrapper
+            p.img_info= image.title
             img.main(src=image.url)
-            p.img_info= image.description    
+            p.img_info= image.description 
+            p.img_info.copyright= 'Copyright '+image.url   
           .img_options.clearfix
             a(href="/gallery/"+image.id+"/edit")
               img.edit_icon(src="/layout/svg/edit.svg")
@@ -33,7 +35,7 @@ body
               a(href="/gallery/"+image.id)
                 img.view_img(src=image.url)
                 p.view_text view   
+              p.img_info= image.title
               p.img_info= image.author
-
   #footer
   script(src='/js/jquery.js')

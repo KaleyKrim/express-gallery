@@ -79,11 +79,12 @@ body {
       color: #7E797F;
       font-family: 'Oswald', sans-serif;
       font-size: 50px;
+      letter-spacing: 5px;
     }
     p {
       position: absolute;
       top: 10px;
-      right: 140px;
+      right: 240px;
       color: #C7C5BE;
       font-size: 12px;
       font-family: 'Oswald', sans-serif;
@@ -97,12 +98,11 @@ body {
     clear: both
     // border: 2px solid green;
     #featured_photo {
-      width: 50%;
-      border: 2px solid red;
-    }
-    #thumbnail_photos {
       // width: 50%;
-      border: 2px solid blue;
+      border-bottom: 2px solid #E6E6E6;
+    }
+    .thumbnail_photos {
+      border-bottom: 2px solid #E6E6E6;
     }
     .img_wrapper {
       position: relative;
@@ -136,6 +136,7 @@ body {
       font-size: 10px;
       color: #7E797F;
       text-align: left;
+      margin-top: 10px;
     }
     // show.jade
     .img_options {
@@ -173,14 +174,15 @@ body {
     #selected_photo {
         float: left;
         box-sizing: border-box;
-        width: 70%;
+        width: 65%;
         padding-left: 100px;
         margin-right: 0px;
+        margin-bottom: 100px;
       }
       #sidebar {
         float: right;
         box-sizing: border-box;
-        width: 30%;
+        width: 35%;
         padding-right: 100px;
         margin-left: 0px;
       }
