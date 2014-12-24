@@ -6077,10 +6077,10 @@ body {
     color: #7E797F;
     font-family: 'Oswald', sans-serif;
     font-size: 50px; }
-  body .img_wrapper {
+  body #content .img_wrapper {
     position: relative;
-    margin: 30px; }
-    body .img_wrapper p {
+    margin: 10px; }
+    body #content .img_wrapper p.view_text {
       visibility: hidden;
       position: absolute;
       z-index: 10;
@@ -6092,27 +6092,31 @@ body {
       font-size: 50px;
       font-family: 'Oswald', sans-serif;
       color: #FFFFFF; }
-    body .img_wrapper:hover img {
+    body #content .img_wrapper:hover img.view_img {
       box-shadow: 0 0 10px black;
       opacity: 0.3; }
-    body .img_wrapper:hover p {
+    body #content .img_wrapper:hover p.view_text {
       visibility: visible;
       opacity: 1; }
-  body .img_options {
+  body #content p.img_info {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    color: #7E797F; }
+  body #content .img_options {
     clear: both;
     width: 350px;
     margin-left: auto;
     margin-right: auto; }
-    body .img_options img.edit_icon {
+    body #content .img_options img.edit_icon {
       width: 30px;
       fill: #7E797F;
       float: left;
       display: inline;
       box-sizing: border-box;
       margin-left: 35%; }
-      body .img_options img.edit_icon:hover {
+      body #content .img_options img.edit_icon:hover {
         opacity: 0.3; }
-    body .img_options button.delete_icon {
+    body #content .img_options button.delete_icon {
       background-image: url('/layout/svg/delete.svg');
       background-repeat: no-repeat;
       background-position: 50% 50%;
@@ -6123,15 +6127,23 @@ body {
       float: right;
       box-sizing: border-box;
       margin-right: 35%; }
-      body .img_options button.delete_icon:hover {
+      body #content .img_options button.delete_icon:hover {
         opacity: 0.3; }
-  body form {
+  body #content #selected_photo {
+    float: left;
+    border-sizing: border-box;
+    width: 70%; }
+  body #content #sidebar {
+    float: right;
+    border-sizing: border-box;
+    width: 30%; }
+  body #content form {
     color: #7E797F;
     display: block; }
-    body form button {
+    body #content form button {
       background-color: #7E797F;
       height: 50px; }
-      body form button:hover {
+      body #content form button:hover {
         color: #7E797F;
         background-color: #FFFFFF;
         box-sizing: border-box;

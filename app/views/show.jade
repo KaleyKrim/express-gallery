@@ -8,30 +8,31 @@ body
   //- =image.url
   //- =image.description
   .header
-    h1.logo _architekt
+    a(href="/")
+      h1.logo _architekt
     a(href="/new_photo")
       img.add_icon(src="/layout/svg/add.svg")  
-  #content
-    #single.clearfix
+  #content.clearfix
+    #selected_photo
       .row
         .large-12.columns
           .img_wrapper
             img(src=image.url)
-        .large-12.columns   
           .img_options.clearfix
             a(href="/gallery/"+image.id+"/edit")
               img.edit_icon(src="/layout/svg/edit.svg")
             form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
               button.delete_icon(type="submit")  
-          p= image.description
-
-    #triple.clearfix
+          p.img_info= image.description
+    #sidebar
       .row
         for image in sidebarimages
           .large-12.columns
             .img_wrapper
-              img(src=image.url)
-              p= image.description
+              a(href="/gallery/"+image.id)
+                img.view_img(src=image.url)
+                p.view_text view   
+            p.img_info= image.author
 
   #footer
   script(src='/js/jquery.js')
