@@ -6061,7 +6061,6 @@ table {
 
 body {
   background-color: #FFFFFF;
-  background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center; }
   body .header img.add_icon {
     width: 20px;
@@ -6077,74 +6076,81 @@ body {
     color: #7E797F;
     font-family: 'Oswald', sans-serif;
     font-size: 50px; }
-  body #content .img_wrapper {
-    position: relative;
-    margin: 10px; }
-    body #content .img_wrapper p.view_text {
-      visibility: hidden;
-      position: absolute;
-      z-index: 10;
-      top: 40px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      font-size: 50px;
+  body #content {
+    border: 2px solid green; }
+    body #content #featured_photo {
+      width: 50%;
+      border: 2px solid red; }
+    body #content #thumbnail_photos {
+      border: 2px solid blue; }
+    body #content .img_wrapper {
+      position: relative;
+      margin: 10px; }
+      body #content .img_wrapper p.view_text {
+        visibility: hidden;
+        position: absolute;
+        z-index: 10;
+        top: 40px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        font-size: 50px;
+        font-family: 'Oswald', sans-serif;
+        color: #FFFFFF; }
+      body #content .img_wrapper:hover img.view_img {
+        box-shadow: 0 0 10px black;
+        opacity: 0.3; }
+      body #content .img_wrapper:hover p.view_text {
+        visibility: visible;
+        opacity: 1; }
+    body #content p.img_info {
       font-family: 'Oswald', sans-serif;
-      color: #FFFFFF; }
-    body #content .img_wrapper:hover img.view_img {
-      box-shadow: 0 0 10px black;
-      opacity: 0.3; }
-    body #content .img_wrapper:hover p.view_text {
-      visibility: visible;
-      opacity: 1; }
-  body #content p.img_info {
-    font-family: 'Oswald', sans-serif;
-    font-size: 12px;
-    color: #7E797F; }
-  body #content .img_options {
-    clear: both;
-    width: 350px;
-    margin-left: auto;
-    margin-right: auto; }
-    body #content .img_options img.edit_icon {
-      width: 30px;
-      fill: #7E797F;
-      float: left;
-      display: inline;
-      box-sizing: border-box;
-      margin-left: 35%; }
-      body #content .img_options img.edit_icon:hover {
-        opacity: 0.3; }
-    body #content .img_options button.delete_icon {
-      background-image: url('/layout/svg/delete.svg');
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-color: none;
-      border: none;
-      width: 10px;
-      height: 10px;
-      float: right;
-      box-sizing: border-box;
-      margin-right: 35%; }
-      body #content .img_options button.delete_icon:hover {
-        opacity: 0.3; }
-  body #content #selected_photo {
-    float: left;
-    border-sizing: border-box;
-    width: 70%; }
-  body #content #sidebar {
-    float: right;
-    border-sizing: border-box;
-    width: 30%; }
-  body #content form {
-    color: #7E797F;
-    display: block; }
-    body #content form button {
-      background-color: #7E797F;
-      height: 50px; }
-      body #content form button:hover {
-        color: #7E797F;
-        background-color: #FFFFFF;
+      font-size: 12px;
+      color: #7E797F; }
+    body #content .img_options {
+      clear: both;
+      width: 350px;
+      margin-left: auto;
+      margin-right: auto; }
+      body #content .img_options img.edit_icon {
+        width: 30px;
+        fill: #7E797F;
+        float: left;
+        display: inline;
         box-sizing: border-box;
-        margin: 0 auto; }
+        margin-left: 35%; }
+        body #content .img_options img.edit_icon:hover {
+          opacity: 0.3; }
+      body #content .img_options button.delete_icon {
+        background-image: url('/layout/svg/delete.svg');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-color: #7E797F;
+        border: none;
+        width: 10px;
+        height: 10px;
+        float: right;
+        box-sizing: border-box;
+        margin-right: 35%; }
+        body #content .img_options button.delete_icon:hover {
+          opacity: 0.3; }
+    body #content #selected_photo {
+      float: left;
+      border-sizing: border-box;
+      width: 70%; }
+    body #content #sidebar {
+      float: right;
+      border-sizing: border-box;
+      width: 30%; }
+    body #content form {
+      color: #7E797F;
+      display: block; }
+      body #content form button {
+        background-color: #7E797F;
+        height: 50px; }
+        body #content form button:hover {
+          color: #7E797F;
+          background-color: #FFFFFF;
+          box-sizing: border-box;
+          margin: 0 auto; }

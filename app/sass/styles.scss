@@ -54,7 +54,7 @@ table {
 
 body {
   background-color: #FFFFFF;
-  background-image: url('/layout/images/seamless_paper_texture.png');
+  // background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center;
   .header {
     img.add_icon {
@@ -76,6 +76,15 @@ body {
     }
   }
   #content {
+    border: 2px solid green;
+    #featured_photo {
+      width: 50%;
+      border: 2px solid red;
+    }
+    #thumbnail_photos {
+      // width: 50%;
+      border: 2px solid blue;
+    }
     .img_wrapper {
       position: relative;
       margin: 10px;
@@ -129,7 +138,7 @@ body {
         background-image: url('/layout/svg/delete.svg');
         background-repeat: no-repeat;
         background-position: 50% 50%; 
-        background-color: none;
+        background-color: #7E797F;
         border: none;
         width: 10px;
         height: 10px;
