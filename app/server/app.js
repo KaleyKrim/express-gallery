@@ -23,6 +23,7 @@ module.exports = app;
 
 var Image = mongoose.model('image', {
   author: String,
+  title: String.
   url: String,
   description: String
 });
@@ -42,28 +43,6 @@ app.get('/', function (req, res){
     });
   });
 });
-
-// TESTTTTTTTTTT
-// app.get('/', function (req, res){
-//     Image.findOne({_id:req.params.id},function (err, image){
-//     if (err){
-//       throw err;
-//     }
-//     if (image){
-// // find all images except for the image that matches :id
-//       Image.find({_id: {'$ne': req.params.id }},function(err,thumbnailimages){
-//         if (err){
-//           throw err;
-//         }
-//         res.render("index.jade", {image: image, thumbnailimages: thumbnailimages});
-//       });   
-//     }
-//     else {
-//       res.send(404);
-//     }
-//   })
-// });
-// END TEST
 
 app.get('/new_photo', function (req, res){
   res.render("newphoto.jade");
@@ -161,6 +140,7 @@ app.put('/gallery/:id', function (req, res){
     if (image){
       image.url = req.body.url;
       image.author = req.body.author;
+      image.title = req.body.title;
       image.description = req.body.description;
       image.save(function (err, image){
         if (err){
