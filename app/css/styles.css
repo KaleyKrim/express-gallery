@@ -6062,42 +6062,53 @@ table {
 body {
   background-color: #FFFFFF;
   text-align: center; }
-  body .header {
-    margin: 30px;
-    margin-top: 60px; }
-    body .header img.add_icon {
-      width: 30px;
-      fill: #7E797F;
-      position: absolute;
-      top: 10px;
-      right: 30px; }
+  @media only screen {
+    body .header {
+      margin-bottom: 100px; } }
+  body .header img.add_icon {
+    width: 30px;
+    fill: #7E797F;
+    position: absolute;
+    top: 10px;
+    right: 30px; }
+  body .header h1.logo {
+    color: #7E797F;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-transform: uppercase; }
+  @media only screen and (min-width:64.063em) {
+    body .header {
+      margin: 30px;
+      margin-top: 60px; }
       body .header img.add_icon:hover {
         opacity: 0.3; }
-    body .header h1.logo {
-      padding-top: 15px;
-      border-top: 2px solid #F1F1F1;
-      text-align: left;
-      margin-left: 100px;
-      position: relative;
-      text-transform: uppercase;
-      color: #7E797F;
-      font-family: 'Oswald', sans-serif;
-      font-size: 50px;
-      letter-spacing: 5px; }
-    body .header p {
-      position: absolute;
-      top: 10px;
-      right: 240px;
-      color: #C7C5BE;
-      font-size: 12px;
-      font-family: 'Oswald', sans-serif;
-      text-align: left;
-      width: 15%;
-      border-left: 2px solid #F1F1F1;
-      padding-left: 10px; }
+      body .header h1.logo {
+        padding-top: 15px;
+        border-top: 2px solid #F1F1F1;
+        text-align: left;
+        margin-left: 100px;
+        position: relative;
+        text-transform: uppercase;
+        color: #7E797F;
+        font-family: 'Oswald', sans-serif;
+        font-size: 50px;
+        letter-spacing: 5px; }
+      body .header p {
+        position: absolute;
+        top: 10px;
+        right: 240px;
+        color: #C7C5BE;
+        font-size: 12px;
+        font-family: 'Oswald', sans-serif;
+        text-align: left;
+        width: 15%;
+        border-left: 2px solid #F1F1F1;
+        padding-left: 10px; } }
   body #content {
-    clear: both #fea tured_photo;
-    clear-border-bottom: 2px solid #E6E6E6; }
+    clear: both; }
+    body #content #featured_photo {
+      border-bottom: 2px solid #E6E6E6; }
     body #content .thumbnail_photos {
       border-bottom: 2px solid #E6E6E6; }
     body #content .img_wrapper {
@@ -6139,8 +6150,6 @@ body {
         display: inline;
         box-sizing: border-box;
         margin-left: 35%; }
-        body #content .img_options img.edit_icon:hover {
-          opacity: 0.3; }
       body #content .img_options button.delete_icon {
         background-image: url('/layout/svg/delete.svg');
         background-repeat: no-repeat;
@@ -6152,21 +6161,31 @@ body {
         float: right;
         box-sizing: border-box;
         margin-right: 35%; }
-        body #content .img_options button.delete_icon:hover {
-          opacity: 0.3; }
-    body #content #selected_photo {
-      float: left;
-      box-sizing: border-box;
-      width: 65%;
-      padding-left: 100px;
-      margin-right: 0px;
-      margin-bottom: 100px; }
-    body #content #sidebar {
-      float: right;
-      box-sizing: border-box;
-      width: 35%;
-      padding-right: 100px;
-      margin-left: 0px; }
+      @media only screen and (min-width:64.063em) {
+        body #content .img_options {
+          width: 350px;
+          margin-left: auto;
+          margin-right: auto; }
+          body #content .img_options img.edit_icon:hover {
+            opacity: 0.3; }
+          body #content .img_options button.delete_icon:hover {
+            opacity: 0.3; } }
+    @media only screen and (min-width:64.063em) {
+      body #content #selected_photo {
+        float: left;
+        box-sizing: border-box;
+        width: 65%;
+        padding-left: 100px;
+        margin-right: 0px;
+        margin-bottom: 100px; }
+
+      body #content #sidebar {
+        float: right;
+        box-sizing: border-box;
+        width: 35%;
+        padding-right: 100px;
+        margin-left: 0px; }
+ }
     body #content form {
       color: #7E797F;
       display: block; }

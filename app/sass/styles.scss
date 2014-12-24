@@ -57,46 +57,60 @@ body {
   // background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center;
   .header {
-    margin: 30px;
-    margin-top: 60px;
-    img.add_icon {
-      width: 30px;
-      fill: #7E797F;
-      position: absolute;
-      top: 10px;
-      right: 30px;
-      &:hover {
-        opacity: 0.3;
-      }
+    @media #{$small-up} { 
+      margin-bottom: 100px;
     }
+    img.add_icon {
+        width: 30px;
+        fill: #7E797F;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        }
     h1.logo {
-      padding-top: 15px;
-      border-top: 2px solid #F1F1F1;
-      text-align: left;
-      margin-left: 100px;
-      position: relative;
-      text-transform: uppercase;
       color: #7E797F;
       font-family: 'Oswald', sans-serif;
       font-size: 50px;
       letter-spacing: 5px;
+      text-transform: uppercase;
     }
-    p {
-      position: absolute;
-      top: 10px;
-      right: 240px;
-      color: #C7C5BE;
-      font-size: 12px;
-      font-family: 'Oswald', sans-serif;
-      text-align: left;
-      width: 15%;
-      border-left: 2px solid #F1F1F1;
-      padding-left: 10px;
+    @media #{$large-up} { 
+      margin: 30px;
+      margin-top: 60px;
+      img.add_icon:hover {
+        opacity: 0.3;
+      }
+      h1.logo {
+        padding-top: 15px;
+        border-top: 2px solid #F1F1F1;
+        text-align: left;
+        margin-left: 100px;
+        position: relative;
+        text-transform: uppercase;
+        color: #7E797F;
+        font-family: 'Oswald', sans-serif;
+        font-size: 50px;
+        letter-spacing: 5px;
+      }
+      p {
+        position: absolute;
+        top: 10px;
+        right: 240px;
+        color: #C7C5BE;
+        font-size: 12px;
+        font-family: 'Oswald', sans-serif;
+        text-align: left;
+        width: 15%;
+        border-left: 2px solid #F1F1F1;
+        padding-left: 10px;
+      }
     }
   }
   #content {
-    clear: both
-    // border: 2px solid green;
+    clear: both;
+    @media #{$small-only} { 
+      // width: 80%;
+    }
     #featured_photo {
       // width: 50%;
       border-bottom: 2px solid #E6E6E6;
@@ -151,9 +165,6 @@ body {
         display: inline;
         box-sizing: border-box;
         margin-left: 35%;
-        &:hover {
-          opacity: 0.3;
-        }
       }
       button.delete_icon {
         background-image: url('/layout/svg/delete.svg');
@@ -166,25 +177,35 @@ body {
         float: right;
         box-sizing: border-box;
         margin-right: 35%;
-        &:hover {
+      }
+      @media #{$large-up} { 
+        width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        img.edit_icon:hover {
+          opacity: 0.3;
+        }
+        button.delete_icon:hover {
           opacity: 0.3;
         }
       }
     }
-    #selected_photo {
-        float: left;
-        box-sizing: border-box;
-        width: 65%;
-        padding-left: 100px;
-        margin-right: 0px;
-        margin-bottom: 100px;
-      }
-      #sidebar {
-        float: right;
-        box-sizing: border-box;
-        width: 35%;
-        padding-right: 100px;
-        margin-left: 0px;
+    @media #{$large-up} { 
+      #selected_photo {
+          float: left;
+          box-sizing: border-box;
+          width: 65%;
+          padding-left: 100px;
+          margin-right: 0px;
+          margin-bottom: 100px;
+        }
+        #sidebar {
+          float: right;
+          box-sizing: border-box;
+          width: 35%;
+          padding-right: 100px;
+          margin-left: 0px;
+        }
       }
     // newphoto.jade/edit.jade
     form {

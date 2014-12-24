@@ -12,7 +12,7 @@ body
       h1.logo _architekt
     a(href="/new_photo")
       img.add_icon(src="/layout/svg/add.svg") 
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula. 
+    p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula. 
   #content.clearfix
     #selected_photo
       .row
@@ -27,7 +27,7 @@ body
               img.edit_icon(src="/layout/svg/edit.svg")
             form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
               button.delete_icon(type="submit")  
-    #sidebar
+    #sidebar.show-for-large-up
       .row
         for image in sidebarimages
           .large-12.columns
