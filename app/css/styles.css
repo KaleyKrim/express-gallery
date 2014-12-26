@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald");
 meta.foundation-version {
   font-family: "/5.5.0/"; }
 
@@ -2566,13 +2567,13 @@ button::-moz-focus-inner {
 
 /* Standard Forms */
 form {
-  margin: 0 0 1rem; }
+  margin: 0 0 0.75rem; }
 
 /* Using forms within rows, we need to set some defaults */
 form .row .row {
-  margin: 0 -0.5rem; }
+  margin: 0 -0.375rem; }
   form .row .row .column, form .row .row .columns {
-    padding: 0 0.5rem; }
+    padding: 0 0.375rem; }
   form .row .row.collapse {
     margin: 0; }
     form .row .row.collapse .column, form .row .row.collapse .columns {
@@ -2583,11 +2584,11 @@ form .row .row {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
 form .row input.column, form .row input.columns, form .row textarea.column, form .row textarea.columns {
-  padding-left: 0.5rem; }
+  padding-left: 0.375rem; }
 
 /* Label Styles */
 label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #4d4d4d;
   cursor: pointer;
   display: block;
@@ -2599,8 +2600,8 @@ label {
     float: none !important;
     text-align: right; }
   label.inline {
-    margin: 0 0 1rem 0;
-    padding: 0.5625rem 0; }
+    margin: 0 0 0.75rem 0;
+    padding: 0.4375rem 0; }
   label small {
     text-transform: capitalize;
     color: #676767; }
@@ -2617,9 +2618,9 @@ label {
   border-style: solid;
   border-width: 1px;
   overflow: hidden;
-  font-size: 0.875rem;
-  height: 2.3125rem;
-  line-height: 2.3125rem; }
+  font-size: 0.75rem;
+  height: 1.9375rem;
+  line-height: 1.9375rem; }
 
 /* Adjust padding, alignment and radius if pre/post element is a button */
 .postfix.button {
@@ -2692,9 +2693,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   color: rgba(0, 0, 0, 0.75);
   display: block;
   font-size: 0.875rem;
-  margin: 0 0 1rem 0;
-  padding: 0.5rem;
-  height: 2.3125rem;
+  margin: 0 0 0.75rem 0;
+  padding: 0.375rem;
+  height: 1.9375rem;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2788,13 +2789,13 @@ select {
   border-style: solid;
   border-width: 1px;
   border-color: #cccccc;
-  padding: 0.5rem;
+  padding: 0.375rem;
   font-size: 0.875rem;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   color: rgba(0, 0, 0, 0.75);
   line-height: normal;
   border-radius: 0;
-  height: 2.3125rem; }
+  height: 1.9375rem; }
   select::-ms-expand {
     display: none; }
   select.radius {
@@ -2808,12 +2809,12 @@ select {
 
 /* Adjust margin for form elements below */
 input[type="file"], input[type="checkbox"], input[type="radio"], select {
-  margin: 0 0 1rem 0; }
+  margin: 0 0 0.75rem 0; }
 
 input[type="checkbox"] + label, input[type="radio"] + label {
   display: inline-block;
-  margin-left: 0.5rem;
-  margin-right: 1rem;
+  margin-left: 0.375rem;
+  margin-right: 0.75rem;
   margin-bottom: 0;
   vertical-align: baseline; }
 
@@ -2839,7 +2840,7 @@ fieldset {
   display: block;
   padding: 0.375rem 0.5625rem 0.5625rem;
   margin-top: -1px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
@@ -2852,7 +2853,7 @@ span.error, small.error {
   display: block;
   padding: 0.375rem 0.5625rem 0.5625rem;
   margin-top: -1px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
@@ -2862,14 +2863,14 @@ span.error, small.error {
 .error input, .error textarea, .error select {
   margin-bottom: 0; }
 .error input[type="checkbox"], .error input[type="radio"] {
-  margin-bottom: 1rem; }
+  margin-bottom: 0.75rem; }
 .error label, .error label.error {
   color: #f04124; }
 .error small.error {
   display: block;
   padding: 0.375rem 0.5625rem 0.5625rem;
   margin-top: -1px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
@@ -6025,5 +6026,174 @@ th.hide-for-touch {
     display: table-cell !important; }
  }
 
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
 body {
-  background-color: #272821; }
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #FFFFFF;
+  text-align: center; }
+  @media only screen {
+    body .header {
+      margin-bottom: 100px; } }
+  body .header img.add_icon {
+    width: 30px;
+    fill: #7E797F;
+    position: absolute;
+    top: 10px;
+    right: 30px; }
+  body .header h1.logo {
+    color: #7E797F;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-transform: uppercase; }
+  @media only screen and (min-width:64.063em) {
+    body .header {
+      margin: 30px;
+      margin-top: 60px; }
+      body .header img.add_icon:hover {
+        opacity: 0.3; }
+      body .header h1.logo {
+        padding-top: 15px;
+        border-top: 2px solid #F1F1F1;
+        text-align: left;
+        margin-left: 100px;
+        position: relative;
+        text-transform: uppercase;
+        color: #7E797F;
+        font-family: 'Oswald', sans-serif;
+        font-size: 50px;
+        letter-spacing: 5px; }
+      body .header p {
+        position: absolute;
+        top: 10px;
+        right: 240px;
+        color: #C7C5BE;
+        font-size: 12px;
+        font-family: 'Oswald', sans-serif;
+        text-align: left;
+        width: 15%;
+        border-left: 2px solid #F1F1F1;
+        padding-left: 10px; } }
+  body #content {
+    clear: both; }
+    body #content #featured_photo {
+      border-bottom: 2px solid #E6E6E6; }
+    body #content .thumbnail_photos {
+      border-bottom: 2px solid #E6E6E6; }
+    body #content .img_wrapper {
+      position: relative;
+      margin: 10px; }
+      body #content .img_wrapper p.view_text {
+        visibility: hidden;
+        position: absolute;
+        z-index: 10;
+        top: 40px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        font-size: 30px;
+        font-family: 'Oswald', sans-serif;
+        color: #FFFFFF; }
+      body #content .img_wrapper:hover img.view_img {
+        box-shadow: 0 0 10px black;
+        opacity: 0.3; }
+      body #content .img_wrapper:hover p.view_text {
+        visibility: visible;
+        opacity: 1; }
+    body #content p.img_info {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      color: #7E797F;
+      text-align: left;
+      margin-top: 10px; }
+    body #content .img_options {
+      clear: both;
+      width: 350px;
+      margin-left: auto;
+      margin-right: auto; }
+      body #content .img_options img.edit_icon {
+        width: 30px;
+        fill: #7E797F;
+        float: left;
+        display: inline;
+        box-sizing: border-box;
+        margin-left: 35%; }
+      body #content .img_options button.delete_icon {
+        background-image: url('/layout/svg/delete.svg');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-color: #FFFFFF;
+        border: none;
+        width: 10px;
+        height: 10px;
+        float: right;
+        box-sizing: border-box;
+        margin-right: 35%; }
+      @media only screen and (min-width:64.063em) {
+        body #content .img_options {
+          width: 350px;
+          margin-left: auto;
+          margin-right: auto; }
+          body #content .img_options img.edit_icon:hover {
+            opacity: 0.3; }
+          body #content .img_options button.delete_icon:hover {
+            opacity: 0.3; } }
+    @media only screen and (min-width:64.063em) {
+      body #content #selected_photo {
+        float: left;
+        box-sizing: border-box;
+        width: 65%;
+        padding-left: 100px;
+        margin-right: 0px;
+        margin-bottom: 100px; }
+
+      body #content #sidebar {
+        float: right;
+        box-sizing: border-box;
+        width: 35%;
+        padding-right: 100px;
+        margin-left: 0px; }
+ }
+    body #content form {
+      color: #7E797F;
+      display: block; }
+      body #content form button#save {
+        background-color: #7E797F;
+        height: 50px; }
+        body #content form button#save:hover {
+          color: #7E797F;
+          background-color: #FFFFFF;
+          box-sizing: border-box;
+          margin: 0 auto; }
