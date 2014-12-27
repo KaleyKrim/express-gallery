@@ -180,6 +180,10 @@ app.get('/login', function (req, res) {
   res.render("login.jade")
 });
 
+app.post('/login', function (req, res){
+  res.send("qkdjjkw")
+})
+
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
