@@ -14,7 +14,7 @@ body
     #featured_photo
       .row
         .large-12.columns
-          for image in images
+          for image in header
             .img_wrapper
               a(href="/gallery/"+image.id)
                 img.view_img(src=image.url)
