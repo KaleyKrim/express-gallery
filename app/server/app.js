@@ -38,8 +38,12 @@ app.get('/', function (req, res){
     if (err) {
       throw err;
     }
+
+    var last = [];
+    last.push(docs.pop());
     res.render("index.jade",{
-      images: docs
+      images: docs,
+      header: last
     });
   });
 });
