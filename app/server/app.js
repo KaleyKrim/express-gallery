@@ -213,7 +213,17 @@ app.post('/login', function (req, res){
 
 app.get('/secretRoom', function (req, res){
   res.send("welcome to the secret room")
+
 });
+
+app.get('/registration', function (req, res){
+  res.render("registration.jade")
+});
+
+app.post('/registration', function (req, res){
+  res.send("registrat97iubhknb97ighv")
+});
+
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
