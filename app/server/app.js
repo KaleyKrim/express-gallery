@@ -21,6 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = app;
 
+var User = mongoose.model('user',{
+  username: String,
+  password: String
+
+})
 var Image = mongoose.model('image', {
   author: String,
   title: String,
@@ -181,7 +186,7 @@ app.get('/login', function (req, res) {
 });
 
 app.post('/login', function (req, res){
-  res.send("qkdjjkw")
+  res.send("")
 })
 
 
