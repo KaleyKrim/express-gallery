@@ -221,7 +221,13 @@ app.get('/registration', function (req, res){
 });
 
 app.post('/registration', function (req, res){
-  res.send("registrat97iubhknb97ighv")
+  var user = new User(req.body);
+  user.save(function (err, user){
+    if (err){
+      throw err;
+    }
+    res.redirect('/');
+  })
 });
 
 
