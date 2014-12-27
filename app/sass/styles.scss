@@ -121,6 +121,7 @@ body {
     .img_wrapper {
       position: relative;
       margin: 10px;
+
       p.view_text {
         visibility: hidden;
         position: absolute;
@@ -198,6 +199,9 @@ body {
           padding-left: 100px;
           margin-right: 0px;
           margin-bottom: 100px;
+          text-align: left;
+          font-family: 'Oswald', sans-serif;
+          color: #7E797F;
         }
         #sidebar {
           float: right;

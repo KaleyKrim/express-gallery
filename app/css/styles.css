@@ -6177,7 +6177,10 @@ body {
         width: 65%;
         padding-left: 100px;
         margin-right: 0px;
-        margin-bottom: 100px; }
+        margin-bottom: 100px;
+        text-align: left;
+        font-family: 'Oswald', sans-serif;
+        color: #7E797F; }
 
       body #content #sidebar {
         float: right;
