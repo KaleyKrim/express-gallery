@@ -174,6 +174,13 @@ app.delete('/gallery/:id', function (req, res){
   
 });
 
+//user authentication
+app.get('/login', function (req, res) {
+  //res.render("login", { user: req.user, messages: req.flash('error') });
+  res.render("login.jade")
+});
+
+
 var server = app.listen(3000, function (){
   var host = server.address().address;
   var port = server.address().port;
