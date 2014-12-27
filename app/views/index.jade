@@ -28,15 +28,15 @@ body
                 img.view_img(src=image.url) 
                 p.view_text view
               p.img_info= image.author  
-    .thumbnail_photos
-      .row
-        for image in images            
-          .large-4.columns
-            .img_wrapper
-              a(href="/gallery/"+image.id)
-                img.view_img(src=image.url) 
-                p.view_text view
-              p.img_info= image.author             
+    //- .thumbnail_photos
+    //-   .row
+    //-     for image in images            
+    //-       .large-4.columns
+    //-         .img_wrapper
+    //-           a(href="/gallery/"+image.id)
+    //-             img.view_img(src=image.url) 
+    //-             p.view_text view
+    //-           p.img_info= image.author             
 
   #footer
   script(src='/js/jquery.js')

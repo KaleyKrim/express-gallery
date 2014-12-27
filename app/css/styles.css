@@ -6184,7 +6184,9 @@ body {
         box-sizing: border-box;
         width: 35%;
         padding-right: 100px;
-        margin-left: 0px; }
+        margin-left: 0px;
+        height: 550px;
+        overflow: scroll; }
  }
     body #content form {
       color: #7E797F;
