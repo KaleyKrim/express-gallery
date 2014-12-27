@@ -1,7 +1,41 @@
 doctype html
-html(lang="en")
 head
+  link(rel="stylesheet", type="text/css", href="/css/styles.css")
   meta(charset="UTF-8")
-  title Photo
+  title Express Gallery
 body
-  =image
+  //- =image.author
+  //- =image.url
+  //- =image.description
+  .header
+    a(href="/")
+      h1.logo _architekt
+    a(href="/new_photo")
+      img.add_icon(src="/layout/svg/add.svg") 
+    p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula. 
+  #content.clearfix
+    #selected_photo
+      .row
+        .large-12.columns
+          .img_wrapper
+            p.img_info= image.title
+            img.main(src=image.url)
+            p.img_info= image.description 
+            p.img_info.copyright= 'Copyright '+image.url   
+          .img_options.clearfix
+            a(href="/gallery/"+image.id+"/edit")
+              img.edit_icon(src="/layout/svg/edit.svg")
+            form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
+              button.delete_icon(type="submit")  
+    #sidebar.show-for-large-up
+      .row
+        for image in sidebarimages
+          .large-12.columns
+            .img_wrapper
+              a(href="/gallery/"+image.id)
+                img.view_img(src=image.url)
+                p.view_text view   
+              p.img_info= image.title
+              p.img_info= image.author
+  #footer
+  script(src='/js/jquery.js')

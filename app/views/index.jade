@@ -1,34 +1,42 @@
 doctype html
 head
-  link(rel="stylesheet", type="text/css", href="/css/style.css")
+  link(rel="stylesheet", type="text/css", href="/css/styles.css")
   meta(charset="UTF-8")
   title Express Gallery
 body
-  #header
-  #content
-    #single.clearfix
+  .header 
+    a(href="/")
+      h1.logo _architekt
+    a(href="/new_photo")
+      img.add_icon(src="/layout/svg/add.svg")
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula.     
+  #content.clearfix
+    #featured_photo
       .row
-        for image in images
-          .large-12.columns
-            img(src=image.imageURL)
-          .large-12.columns
-            p= image.description
+        .large-12.columns
+          for image in header
+            .img_wrapper
+              a(href="/gallery/"+image.id)
+                img.view_img(src=image.url)
+                p.view_text view
+    .thumbnail_photos
+      .row
+        for image in images            
+          .large-4.columns
+            .img_wrapper
+              a(href="/gallery/"+image.id)
+                img.view_img(src=image.url) 
+                p.view_text view
+              p.img_info= image.author  
+    //- .thumbnail_photos
+    //-   .row
+    //-     for image in images            
+    //-       .large-4.columns
+    //-         .img_wrapper
+    //-           a(href="/gallery/"+image.id)
+    //-             img.view_img(src=image.url) 
+    //-             p.view_text view
+    //-           p.img_info= image.author             
 
-    #triple.clearfix
-      .row
-        for image in images
-          .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              p= image.description
-          .large-12.columns
-            img(src=image.imageURL)
-              image.description
-  a(href="/new_photo") Add a new photo!
   #footer
   script(src='/js/jquery.js')
-  script(src='/js/client.js')
-
-
