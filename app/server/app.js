@@ -5,7 +5,24 @@ var mongoose = require('mongoose');
 var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
 var Schema = mongoose.Schema;
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 // learn about middleware express and routing
 // new schema and model
@@ -21,11 +38,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = app;
 
-var User = mongoose.model('user',{
+var User = mongoose.model('user', {
   username: String,
   password: String
 
-})
+});
+
 var Image = mongoose.model('image', {
   author: String,
   title: String,
@@ -180,15 +198,22 @@ app.delete('/gallery/:id', function (req, res){
 });
 
 //user authentication
+
 app.get('/login', function (req, res) {
   //res.render("login", { user: req.user, messages: req.flash('error') });
   res.render("login.jade")
 });
 
 app.post('/login', function (req, res){
+  passport.authenticate('local', { successRedirect: '/secretRoom',
+                                 failureRedirect: '/login',
+                                 failureFlash: true })
   res.send("")
-})
+});
 
+app.get('/secretRoom', function (req, res){
+  res.send("welcome to the secret room")
+});
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
