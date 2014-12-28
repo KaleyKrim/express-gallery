@@ -4,20 +4,41 @@ var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
+var session = require('express-session');
 var Schema = mongoose.Schema;
 var methodOverride = require('method-override');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+app.use(methodOverride('_method'));
+app.use(session(
+{
+  secret: 'faka wot',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.engine('html', require('jade').__express);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/../views');
+app.use(express.static(__dirname + '/../')); 
 app.use(passport.initialize());
 app.use(passport.session());
- 
+module.exports = app;
+
 passport.serializeUser(function(user, done) {
+  console.log(user);
     done(null, user);
 });
  
 passport.deserializeUser(function(obj, done) {
-    done(null, obj);
+  console.log(obj);
+    User.findById(obj._id, function (err, user){
+      if (err) throw err;
+      console.log(user);
+      done(err, user);
+    })
+    
 });
 
 passport.use(new LocalStrategy(
@@ -27,6 +48,7 @@ passport.use(new LocalStrategy(
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
+      console.log("local strategy", user.validPassword(password));
       if (!user.validPassword(password)) {
         return done(null, false, { message: 'Incorrect password.' });
       }
@@ -38,17 +60,6 @@ passport.use(new LocalStrategy(
 // learn about middleware express and routing
 // new schema and model
 //  create random table to save to.
-
-
-app.use(methodOverride('_method'));
-app.use(express.static(__dirname + '/../')); 
-app.set('views', __dirname + '/../views');
-app.engine('html', require('jade').__express);
-app.set('view engine', 'html');
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
-module.exports = app;
 
 var userSchema = mongoose.Schema({
   username: String,
@@ -224,11 +235,18 @@ app.get('/login', function (req, res) {
 });
 
 
-app.get('/secretRoom', function (req, res){
+app.get('/secretRoom', ensureAuthenticated, function (req, res){
   res.send("welcome to the secret room")
 
 });
-
+function ensureAuthenticated(req, res, next){
+  console.log(req.user)
+  console.log(req.isAuthenticated())
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/login');
+}
 app.get('/registration', function (req, res){
   res.render("registration.jade")
 });
@@ -247,8 +265,9 @@ app.post('/registration', function (req, res){
 //post request authentication
 app.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login'
+    successRedirect: '/secretRoom',
+    failureRedirect: '/login',
+    failureFlash: false
   })
 );
 
@@ -256,6 +275,11 @@ app.get('/login', function(req,res){
   res.render("login", {user: req.user, messages: "error"})
 });
 
+//post log out
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/login');
+});
   
 
 var server = app.listen(3000, function (){

@@ -20,6 +20,7 @@
     "body-parser": "^1.10.0",
     "connect-livereload": "^0.5.2",
     "express": "^4.10.6",
+    "express-session": "^1.9.3",
     "gulp": "^3.8.10",
     "gulp-sass": "^1.2.4",
     "jade": "~1.8.2",
