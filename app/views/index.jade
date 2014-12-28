@@ -1,15 +1,19 @@
 doctype html
+//- 
 head
   link(rel="stylesheet", type="text/css", href="/css/styles.css")
   meta(charset="UTF-8")
   title Express Gallery
 body
   .header 
+    div 
+      a(href="/logout")
+        button(type="button") Logout
     a(href="/")
       h1.logo _architekt
     a(href="/new_photo")
       img.add_icon(src="/layout/svg/add.svg")
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula.     
+    p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula.     
   #content.clearfix
     #featured_photo
       .row
@@ -20,23 +24,16 @@ body
                 img.view_img(src=image.url)
                 p.view_text view
     .thumbnail_photos
-      .row
-        for image in images            
-          .large-4.columns
-            .img_wrapper
-              a(href="/gallery/"+image.id)
-                img.view_img(src=image.url) 
-                p.view_text view
-              p.img_info= image.author  
-    //- .thumbnail_photos
-    //-   .row
-    //-     for image in images            
-    //-       .large-4.columns
-    //-         .img_wrapper
-    //-           a(href="/gallery/"+image.id)
-    //-             img.view_img(src=image.url) 
-    //-             p.view_text view
-    //-           p.img_info= image.author             
 
+      for rows in content
+        .row
+          for image in rows            
+            .large-4.columns
+              .img_wrapper
+                a(href="/gallery/"+image.id)
+                  img.view_img(src=image.url) 
+                  p.view_text view
+                p.img_info= image.title
+                p.img_info= image.author           
   #footer
   script(src='/js/jquery.js')
