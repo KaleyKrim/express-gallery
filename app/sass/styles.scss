@@ -109,7 +109,7 @@ body {
   #content {
     clear: both;
     @media #{$small-only} { 
-      // width: 80%;
+     
     }
     #featured_photo {
       // width: 50%;
@@ -156,7 +156,7 @@ body {
     // show.jade
     .img_options {
       @media #{$small-only} { 
-        margin-bottom: -1000;
+
         border: 2px solid red;
       }
       clear: both;
