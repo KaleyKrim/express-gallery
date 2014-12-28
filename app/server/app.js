@@ -9,6 +9,17 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+app.use(passport.initialize());
+app.use(passport.session());
+ 
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -36,13 +47,21 @@ app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 module.exports = app;
 
-var User = mongoose.model('user', {
+var userSchema = mongoose.Schema({
   username: String,
   password: String
 
 });
+
+userSchema.methods.validPassword = function (check_password) {
+  return (check_password === this.password);
+};
+
+var User = mongoose.model('users', userSchema);
+
 
 var Image = mongoose.model('image', {
   author: String,
@@ -204,12 +223,6 @@ app.get('/login', function (req, res) {
   res.render("login.jade")
 });
 
-app.post('/login', function (req, res){
-  passport.authenticate('local', { successRedirect: '/secretRoom',
-                                 failureRedirect: '/login',
-                                 failureFlash: true })
-  res.send("")
-});
 
 app.get('/secretRoom', function (req, res){
   res.send("welcome to the secret room")
@@ -220,6 +233,7 @@ app.get('/registration', function (req, res){
   res.render("registration.jade")
 });
 
+//Saves user registration info
 app.post('/registration', function (req, res){
   var user = new User(req.body);
   user.save(function (err, user){
@@ -230,6 +244,19 @@ app.post('/registration', function (req, res){
   })
 });
 
+//post request authentication
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  })
+);
+
+app.get('/login', function(req,res){
+  res.render("login", {user: req.user, messages: "error"})
+});
+
+  
 
 var server = app.listen(3000, function (){
   var host = server.address().address;
