@@ -6064,7 +6064,7 @@ body {
   text-align: center; }
   @media only screen {
     body .header {
-      margin-bottom: 100px; } }
+      margin-bottom: 50px; } }
   body .header img.add_icon {
     width: 30px;
     fill: #7E797F;
@@ -6143,6 +6143,10 @@ body {
       width: 350px;
       margin-left: auto;
       margin-right: auto; }
+      @media only screen and (max-width: 40em) {
+        body #content .img_options {
+          margin-bottom: -1000;
+          border: 2px solid red; } }
       body #content .img_options img.edit_icon {
         width: 30px;
         fill: #7E797F;
@@ -6170,6 +6174,13 @@ body {
             opacity: 0.3; }
           body #content .img_options button.delete_icon:hover {
             opacity: 0.3; } }
+    body #content #selected_photo {
+      text-align: left;
+      font-family: 'Oswald', sans-serif;
+      color: #7E797F;
+      font-size: 30px; }
+      body #content #selected_photo p.title {
+        margin-bottom: 30px; }
     @media only screen and (min-width:64.063em) {
       body #content #selected_photo {
         float: left;

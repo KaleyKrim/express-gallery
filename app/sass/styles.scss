@@ -58,7 +58,7 @@ body {
   text-align: center;
   .header {
     @media #{$small-up} { 
-      margin-bottom: 100px;
+      margin-bottom: 50px;
     }
     img.add_icon {
         width: 30px;
@@ -155,6 +155,10 @@ body {
     }
     // show.jade
     .img_options {
+      @media #{$small-only} { 
+        margin-bottom: -1000;
+        border: 2px solid red;
+      }
       clear: both;
       width: 350px;
       margin-left: auto;
@@ -189,6 +193,15 @@ body {
         button.delete_icon:hover {
           opacity: 0.3;
         }
+      }
+    }
+    #selected_photo {
+      text-align: left;
+      font-family: 'Oswald', sans-serif;
+      color: #7E797F;
+      font-size: 30px;
+      p.title {
+        margin-bottom: 30px;
       }
     }
     @media #{$large-up} { 
