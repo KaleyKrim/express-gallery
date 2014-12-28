@@ -6063,10 +6063,12 @@ body {
   background-color: #FFFFFF;
   text-align: center; }
   body .header button {
-    background-color: #7E797F; }
+    background-color: #7E797F;
+    border: 1px solid #FFFFFF; }
     body .header button:hover {
       background-color: #FFFFFF;
-      color: #7E797F; }
+      color: #7E797F;
+      border: 1px solid #7E797F; }
   @media only screen {
     body .header {
       margin-bottom: 50px; } }
@@ -6074,8 +6076,7 @@ body {
     width: 30px;
     fill: #7E797F;
     position: absolute;
-    top: 10px;
-    right: 30px; }
+    right: 0; }
   body .header h1.logo {
     color: #7E797F;
     font-family: 'Oswald', sans-serif;
@@ -6146,9 +6147,6 @@ body {
       width: 350px;
       margin-left: auto;
       margin-right: auto; }
-      @media only screen and (max-width: 40em) {
-        body #content .img_options {
-          border: 2px solid red; } }
       body #content .img_options img.edit_icon {
         width: 30px;
         fill: #7E797F;
@@ -6197,11 +6195,11 @@ body {
     body #content form {
       color: #7E797F;
       display: block; }
-      body #content form button#save {
+      body #content form button {
         background-color: #7E797F;
-        height: 50px; }
-        body #content form button#save:hover {
+        height: 50px;
+        border: 1px solid #FFFFFF; }
+        body #content form button:hover {
           color: #7E797F;
           background-color: #FFFFFF;
-          box-sizing: border-box;
-          margin: 0 auto; }
+          border: 1px solid #7E797F; }

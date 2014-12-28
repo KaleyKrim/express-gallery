@@ -1,11 +1,17 @@
- //- <%= messages %>
-form(action="/login", method="post")
-  div
-    label Username:
-    input(type="text", name="username")
-  div
-    label Password:
-    input(type="password", name="password")
-  div
-    input(type="submit", value="Log In") 
-
+doctype html
+html(lang="en")
+head
+  link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  meta(charset="UTF-8")
+  title Login Page
+body
+  .header
+    a(href="/")
+      h1.logo _architekt
+  #content
+    form(action="/login", method="post")
+      label Username:
+      input(type="text", name="username")
+      label Password:
+      input(type="password", name="password")
+      button(type="submit", value="Log In") Login

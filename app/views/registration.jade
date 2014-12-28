@@ -1,11 +1,18 @@
-
-form(action="/registration", method="post")
-  div
-    label Username:
-    input(type="text", name="username")
-  div
-    label Password:
-    input(type="password", name="password")
-  div
-    input(type="submit", value="Register")
+doctype html
+head
+  link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  meta(charset="UTF-8")
+  title registration Page
+body
+  .header
+    a(href="/")
+      h1.logo _architekt
+  #content      
+    form(action="/registration", method="post")
+      label Username:
+      input(type="text", name="username")
+  
+      label Password:
+      input(type="password", name="password")
+      button(type="submit", value="Register") Register
 
