@@ -271,9 +271,21 @@ app.get('/registration', function (req, res){
   res.render("registration.jade")
 });
 
+
 //Saves user registration info
 app.post('/registration', function (req, res){
+
+  var salt = process.env.SALT;
+  var user_password = req.body.password;
+  var salted_user_password = user_password + salt; //plz pass the salt
+  var shasum = crypto.createHash('sha512');
+  shasum.update( salted_user_password );
+  var input_result = shasum.digest('hex');
+
+  req.body.password = input_result;
+
   var user = new User(req.body);
+
   user.save(function (err, user){
     if (err){
       throw err;
