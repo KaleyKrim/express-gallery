@@ -59,6 +59,10 @@ body {
   .header {
     button {
       background-color: #7E797F;
+      &:hover {
+        background-color: #FFFFFF;
+        color: #7E797F;
+      }
     }
     @media #{$small-up} { 
       margin-bottom: 50px;
