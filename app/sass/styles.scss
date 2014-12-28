@@ -58,7 +58,7 @@ body {
   text-align: center;
   .header {
     @media #{$small-up} { 
-      margin-bottom: 100px;
+      margin-bottom: 50px;
     }
     img.add_icon {
         width: 30px;
@@ -109,7 +109,7 @@ body {
   #content {
     clear: both;
     @media #{$small-only} { 
-      // width: 80%;
+     
     }
     #featured_photo {
       // width: 50%;
@@ -121,6 +121,7 @@ body {
     .img_wrapper {
       position: relative;
       margin: 10px;
+
       p.view_text {
         visibility: hidden;
         position: absolute;
@@ -154,6 +155,10 @@ body {
     }
     // show.jade
     .img_options {
+      @media #{$small-only} { 
+
+        border: 2px solid red;
+      }
       clear: both;
       width: 350px;
       margin-left: auto;
@@ -190,6 +195,15 @@ body {
         }
       }
     }
+    #selected_photo {
+      text-align: left;
+      font-family: 'Oswald', sans-serif;
+      color: #7E797F;
+      font-size: 30px;
+      p.title {
+        margin-bottom: 30px;
+      }
+    }
     @media #{$large-up} { 
       #selected_photo {
           float: left;
@@ -198,6 +212,9 @@ body {
           padding-left: 100px;
           margin-right: 0px;
           margin-bottom: 100px;
+          text-align: left;
+          font-family: 'Oswald', sans-serif;
+          color: #7E797F;
         }
         #sidebar {
           float: right;
@@ -205,6 +222,8 @@ body {
           width: 35%;
           padding-right: 100px;
           margin-left: 0px;
+          height: 550px;
+          overflow: scroll;
         }
       }
     // newphoto.jade/edit.jade

@@ -6,6 +6,7 @@ var secret = process.env.DBPASS;
 mongoose.connect('mongodb://dmeowmixer:'+secret+'@ds027771.mongolab.com:27771/winharder');
 var Schema = mongoose.Schema;
 var methodOverride = require('method-override')
+var crypto = require('crypto');
 
 // learn about middleware express and routing
 // new schema and model
@@ -38,8 +39,28 @@ app.get('/', function (req, res){
     if (err) {
       throw err;
     }
+
+    var last = [];
+    var newArray =[];
+    //itterates through images and pushed 3 into new array for .thumbnail_photos
+    for(var i = 0; i <docs.length; i += 3) {
+      var row = [
+      docs[i],
+      docs[i+1],
+      docs[i+2]
+      ];  
+      var filteredArray = row.filter(removeUndefined);
+      newArray.push(filteredArray);  
+    }
+    function removeUndefined(elements) {
+      return elements !== undefined;
+      // if idex is not undefined
+    }
+    last.push(docs.pop());
     res.render("index.jade",{
-      images: docs
+      images: docs,
+      header: last,
+      content: newArray //to render 3 column rows
     });
   });
 });
