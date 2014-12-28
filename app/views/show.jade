@@ -18,7 +18,7 @@ body
       .row
         .large-12.columns
           .img_wrapper
-            p.img_info= image.title
+            p.title= image.title
             img.main(src=image.url)
             p.img_info= image.description 
             p.img_info.copyright= 'Copyright '+image.url   
@@ -37,5 +37,6 @@ body
                 p.view_text view   
               p.img_info= image.title
               p.img_info= image.author
+
   #footer
   script(src='/js/jquery.js')
