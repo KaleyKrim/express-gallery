@@ -68,7 +68,7 @@ var userSchema = mongoose.Schema({
 });
 
 userSchema.methods.validPassword = function (check_password) {
-  return (check_password === this.password);
+  return (passwordCrypt(check_password) === this.password);
 };
 
 var User = mongoose.model('users', userSchema);
@@ -276,21 +276,7 @@ app.get('/registration', function (req, res){
 //checking if username exists
 app.post('/registration', function (req, res){
 
-
-  var salt = process.env.SALT;
-  var user_password = req.body.password;
-  var salted_user_password = user_password + salt; //plz pass the salt
-  var shasum = crypto.createHash('sha512');
-  shasum.update( salted_user_password );
-  var input_result = shasum.digest('hex');
-
-  req.body.password = input_result;
-
-  var user = new User(req.body);
-
-  user.save(function (err, user){
-    if (err){
-      throw err;
+  
   User.findOne({username: req.body.username}, function(err, user){
     if (err) {
       return err;
@@ -298,6 +284,8 @@ app.post('/registration', function (req, res){
     if (user){
       res.send("User ID Already Exists")
     } else{
+      req.body.password = passwordCrypt(req.body.password);
+  
       var user = new User(req.body);
       user.save(function (err, user){
         if (err){
@@ -316,6 +304,7 @@ app.post('/login',
     failureRedirect: '/login',
     failureFlash: false
   })
+
 );
 
 app.get('/login', function(req,res){
@@ -334,3 +323,15 @@ var server = app.listen(3000, function (){
   var port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port)
 });
+
+function passwordCrypt(password) {
+  var salt = process.env.SALT;
+    var user_password = password;
+    var salted_user_password = user_password + salt; //plz pass the salt
+    var shasum = crypto.createHash('sha512');
+    shasum.update( salted_user_password );
+    var input_result = shasum.digest('hex');
+  
+    // req.body.password = input_result;
+    return input_result
+}
