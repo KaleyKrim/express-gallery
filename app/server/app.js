@@ -271,9 +271,11 @@ app.get('/registration', function (req, res){
   res.render("registration.jade")
 });
 
-
 //Saves user registration info
+
+//checking if username exists
 app.post('/registration', function (req, res){
+
 
   var salt = process.env.SALT;
   var user_password = req.body.password;
@@ -289,9 +291,22 @@ app.post('/registration', function (req, res){
   user.save(function (err, user){
     if (err){
       throw err;
+  User.findOne({username: req.body.username}, function(err, user){
+    if (err) {
+      return err;
+    };
+    if (user){
+      res.send("User ID Already Exists")
+    } else{
+      var user = new User(req.body);
+      user.save(function (err, user){
+        if (err){
+          throw err;
+        }
+        res.redirect('/');
+      })    
     }
-    res.redirect('/');
-  })
+  });
 });
 
 //post request authentication
