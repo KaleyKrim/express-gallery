@@ -6,14 +6,17 @@ head
   title Express Gallery
 body
   .header 
-    div 
-      a(href="/logout")
-        button(type="button") Logout
-    a(href="/")
-      h1.logo _architekt
-    a(href="/new_photo")
-      img.add_icon(src="/layout/svg/add.svg")
-    p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula.     
+    .row
+      .large-9.columns
+        a(href="/")
+          h1.logo _architekt
+      .large-3.columns    
+        a(href="/new_photo")
+          img.add_icon(src="/layout/svg/add.svg")
+        div 
+          a(href="/logout")
+            button#save(type="button") Logout   
+        //- p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula.     
   #content.clearfix
     #featured_photo
       .row

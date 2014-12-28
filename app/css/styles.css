@@ -6062,6 +6062,8 @@ table {
 body {
   background-color: #FFFFFF;
   text-align: center; }
+  body .header button {
+    background-color: #7E797F; }
   @media only screen {
     body .header {
       margin-bottom: 50px; } }
@@ -6080,15 +6082,13 @@ body {
   @media only screen and (min-width:64.063em) {
     body .header {
       margin: 30px;
-      margin-top: 60px; }
+      margin-bottom: 50px; }
       body .header img.add_icon:hover {
         opacity: 0.3; }
       body .header h1.logo {
         padding-top: 15px;
         border-top: 2px solid #F1F1F1;
         text-align: left;
-        margin-left: 100px;
-        position: relative;
         text-transform: uppercase;
         color: #7E797F;
         font-family: 'Oswald', sans-serif;
@@ -6102,9 +6102,9 @@ body {
         font-size: 12px;
         font-family: 'Oswald', sans-serif;
         text-align: left;
-        width: 15%;
         border-left: 2px solid #F1F1F1;
-        padding-left: 10px; } }
+        padding-left: 10px;
+        line-height: 15px; } }
   body #content {
     clear: both; }
     body #content #featured_photo {
@@ -6145,7 +6145,6 @@ body {
       margin-right: auto; }
       @media only screen and (max-width: 40em) {
         body #content .img_options {
-          margin-bottom: -1000;
           border: 2px solid red; } }
       body #content .img_options img.edit_icon {
         width: 30px;
@@ -6178,28 +6177,18 @@ body {
       text-align: left;
       font-family: 'Oswald', sans-serif;
       color: #7E797F;
-      font-size: 30px; }
+      font-size: 20px; }
       body #content #selected_photo p.title {
         margin-bottom: 30px; }
     @media only screen and (min-width:64.063em) {
       body #content #selected_photo {
-        float: left;
-        box-sizing: border-box;
-        width: 65%;
-        padding-left: 100px;
-        margin-right: 0px;
         margin-bottom: 100px;
         text-align: left;
         font-family: 'Oswald', sans-serif;
         color: #7E797F; }
 
       body #content #sidebar {
-        float: right;
-        box-sizing: border-box;
-        width: 35%;
-        padding-right: 100px;
-        margin-left: 0px;
-        height: 550px;
+        height: 350px;
         overflow: scroll; }
  }
     body #content form {

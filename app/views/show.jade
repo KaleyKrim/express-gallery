@@ -4,39 +4,44 @@ head
   meta(charset="UTF-8")
   title Express Gallery
 body
-  //- =image.author
-  //- =image.url
-  //- =image.description
-  .header
-    a(href="/")
-      h1.logo _architekt
-    a(href="/new_photo")
-      img.add_icon(src="/layout/svg/add.svg") 
-    p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a ante tincidunt, egestas dui eget, commodo ligula. 
+  .header 
+    .row
+      .large-9.columns
+        a(href="/")
+          h1.logo _architekt
+      .large-3.columns    
+        a(href="/new_photo")
+          img.add_icon(src="/layout/svg/add.svg")
+        div 
+          a(href="/logout")
+            button(type="button") Logout   
+        p.show-for-large-up Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
   #content.clearfix
-    #selected_photo
-      .row
-        .large-12.columns
-          .img_wrapper
-            p.title= image.title
-            img.main(src=image.url)
-            p.img_info= image.description 
-            p.img_info.copyright= 'Copyright '+image.url   
-          .img_options.clearfix
-            a(href="/gallery/"+image.id+"/edit")
-              img.edit_icon(src="/layout/svg/edit.svg")
-            form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
-              button.delete_icon(type="submit")  
-    #sidebar.show-for-large-up
-      .row
-        for image in sidebarimages
-          .large-12.columns
-            .img_wrapper
-              a(href="/gallery/"+image.id)
-                img.view_img(src=image.url)
-                p.view_text view   
-              p.img_info= image.title
-              p.img_info= image.author
+    .row
+      .large-10.columns
+        #selected_photo
+          .row
+            .large-12.columns
+              .img_wrapper
+                p.title= image.title
+                img.main(src=image.url)
+                p.img_info= image.description 
+                p.img_info.copyright= 'Copyright '+image.url   
+              .img_options.clearfix
+                a(href="/gallery/"+image.id+"/edit")
+                  img.edit_icon(src="/layout/svg/edit.svg")
+                form(action='/gallery/'+image.id+'?_method=DELETE',method='POST')
+                  button.delete_icon(type="submit")
+      .large-2.columns              
+        #sidebar.show-for-large-up
+          .row
+            for image in sidebarimages
+              .large-12.columns
+                .img_wrapper
+                  a(href="/gallery/"+image.id)
+                    img.view_img(src=image.url) 
+                  p.img_info= image.title
+                  p.img_info= image.author
 
   #footer
   script(src='/js/jquery.js')
