@@ -1,9 +1,9 @@
 Express-Gallery
 ===============
-To run this app, go to app/server/ then run `DBPASS="(yourpasshur)" gulp`
-npm i
-bower init 
-bower i
+To run this app, go to app/server/ then run `DBPASS="saltnpepper" gulp`
+npm install 
+
+
 
 
 
