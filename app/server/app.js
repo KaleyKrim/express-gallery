@@ -127,6 +127,31 @@ var Image = mongoose.model('image', {
 
 */
 
+function get(url){
+  // return new promise
+  return new Promise(function (resolve,reject){
+    var req = new XMLHttpRequest();
+    req.open('GET',url);
+    req.onload = function(){
+      // Check if the request is ok with code 200
+      if (req.status === 200){
+        resolve(req.response);
+      }
+      else {
+        // reject w/ error message
+        reject(Error(req.statusText));
+      }
+    };
+    // this will handle Network Errors
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+    // If everythings good, make the request
+    req.send();
+  })
+}
+
+
 app.get('/', function (req, res){
   Image.find({}, function (err, docs){
     if (err) {
