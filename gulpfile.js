@@ -1,7 +1,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var server = require('./app/server/app.js');
+var server = require('./app/app.js');
 
 gulp.task('styles', function () {
   return gulp.src('./app/sass/*.scss')
@@ -13,7 +13,7 @@ gulp.task('watch_styles', function () {
   gulp.watch('./app/sass/**/*.scss', ['styles']);
   gulp.watch('./app/views/*.jade', notifyLiveReload);
   gulp.watch('./app/css/*.css', notifyLiveReload);
-})
+});
 
 gulp.task('express', function() {
   server.use(require('connect-livereload')({port: 35729}));
