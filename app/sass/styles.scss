@@ -57,6 +57,17 @@ body {
   // background-image: url('/layout/images/seamless_paper_texture.png');
   text-align: center;
   .header {
+    button {
+      // position: absolute;
+      // right: 25px;
+      background-color: #7E797F;
+      border: 1px solid #FFFFFF;
+      &:hover {
+        background-color: #FFFFFF;
+        color: #7E797F;
+        border: 1px solid #7E797F;
+      }
+    }
     @media #{$small-up} { 
       margin-bottom: 50px;
     }
@@ -64,8 +75,7 @@ body {
         width: 30px;
         fill: #7E797F;
         position: absolute;
-        top: 10px;
-        right: 30px;
+        right: 0;
         }
     h1.logo {
       color: #7E797F;
@@ -76,7 +86,7 @@ body {
     }
     @media #{$large-up} { 
       margin: 30px;
-      margin-top: 60px;
+      margin-bottom: 50px;
       img.add_icon:hover {
         opacity: 0.3;
       }
@@ -84,8 +94,6 @@ body {
         padding-top: 15px;
         border-top: 2px solid #F1F1F1;
         text-align: left;
-        margin-left: 100px;
-        position: relative;
         text-transform: uppercase;
         color: #7E797F;
         font-family: 'Oswald', sans-serif;
@@ -100,9 +108,9 @@ body {
         font-size: 12px;
         font-family: 'Oswald', sans-serif;
         text-align: left;
-        width: 15%;
         border-left: 2px solid #F1F1F1;
         padding-left: 10px;
+        line-height: 15px;
       }
     }
   }
@@ -157,7 +165,7 @@ body {
     .img_options {
       @media #{$small-only} { 
 
-        border: 2px solid red;
+        
       }
       clear: both;
       width: 350px;
@@ -199,30 +207,20 @@ body {
       text-align: left;
       font-family: 'Oswald', sans-serif;
       color: #7E797F;
-      font-size: 30px;
+      font-size: 20px;
       p.title {
         margin-bottom: 30px;
       }
     }
     @media #{$large-up} { 
       #selected_photo {
-          float: left;
-          box-sizing: border-box;
-          width: 65%;
-          padding-left: 100px;
-          margin-right: 0px;
           margin-bottom: 100px;
           text-align: left;
           font-family: 'Oswald', sans-serif;
           color: #7E797F;
         }
         #sidebar {
-          float: right;
-          box-sizing: border-box;
-          width: 35%;
-          padding-right: 100px;
-          margin-left: 0px;
-          height: 550px;
+          height: 350px;
           overflow: scroll;
         }
       }
@@ -230,17 +228,16 @@ body {
     form {
       color: #7E797F;
       display: block;
-      button#save {
+      button {
         background-color: #7E797F;
         height: 50px;
+        border: 1px solid #FFFFFF;
         &:hover {
           color: #7E797F;
           background-color: #FFFFFF;
-          box-sizing: border-box;
-          margin: 0 auto;
+          border: 1px solid #7E797F;
         }
       }
     }
   }
-  
 }

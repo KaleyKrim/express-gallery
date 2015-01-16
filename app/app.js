@@ -10,27 +10,52 @@ var methodOverride = require('method-override');
 var crypto = require('crypto');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var _Image = require('./models/image');
+
+
+var User = require('./models/user');
+// middlewares
 
 app.use(methodOverride('_method'));
+/*
+
+  Express JS session cookie ID and secret pass
+
+*/
+
 app.use(session(
 {
   secret: 'faka wot',
   resave: false,
   saveUninitialized: true
 }));
+
+// middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', require('jade').__express);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/../views');
-app.use(express.static(__dirname + '/../')); 
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/')); 
 app.use(passport.initialize());
 app.use(passport.session());
 module.exports = app;
 
+
+/*
+
+  Passport session start upon user identification and verify.
+
+*/
 passport.serializeUser(function(user, done) {
   console.log(user);
     done(null, user);
 });
+
+/*
+
+  Passport session end!
+
+*/
  
 passport.deserializeUser(function(obj, done) {
   console.log(obj);
@@ -38,10 +63,16 @@ passport.deserializeUser(function(obj, done) {
       if (err) throw err;
       console.log(user);
       done(err, user);
-    })
+    });
     
 });
 
+
+/*
+
+  Finds one User with the username : ***** runs validation check
+
+*/
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -57,37 +88,77 @@ passport.use(new LocalStrategy(
     });
   }
 ));
-// learn about middleware express and routing
-// new schema and model
-//  create random table to save to.
 
-var userSchema = mongoose.Schema({
-  username: String,
-  password: String
+/*
 
-});
+  New Schema and Model
 
-userSchema.methods.validPassword = function (check_password) {
-  return (passwordCrypt(check_password) === this.password);
-};
+*/
 
-var User = mongoose.model('users', userSchema);
+// var userSchema = mongoose.Schema({
+//   username: String,
+//   password: String
 
+// });
 
-var Image = mongoose.model('image', {
-  author: String,
-  title: String,
-  url: String,
-  description: String
-});
+/*
+
+  Defines the validPassword function
+
+*/
+// userSchema.methods.validPassword = function (check_password) {
+//   return (passwordCrypt(check_password) === this.password);
+// };
+
+// var User = mongoose.model('users', userSchema);
+
+/*
+
+  _Image model
+
+*/
+// var _Image = mongoose.model('image', {
+//   author: String,
+//   title: String,
+//   url: String,
+//   description: String
+// });
 
 /* 
-GET REQUEST to view list of gallery photos
+
+  GET REQUEST to view list of gallery photos
+
 */
+
+function get(url){
+  // return new promise
+  return new Promise(function (resolve,reject){
+    var req = new XMLHttpRequest();
+    req.open('GET',url);
+    req.onload = function(){
+      // Check if the request is ok with code 200
+      if (req.status === 200){
+        resolve(req.response);
+      }
+      else {
+        // reject w/ error message
+        reject(Error(req.statusText));
+      }
+    };
+    // this will handle Network Errors
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+    // If everythings good, make the request
+    req.send();
+  })
+}
 
 
 app.get('/', function (req, res){
-  Image.find({}, function (err, docs){
+  console.log(_Image.find);
+  _Image.find({}, function (err, docs){
+
     if (err) {
       throw err;
     }
@@ -109,6 +180,7 @@ app.get('/', function (req, res){
       // if idex is not undefined
     }
     last.push(docs.pop());
+
     res.render("index.jade",{
       images: docs,
       header: last,
@@ -123,20 +195,22 @@ app.get('/new_photo', function (req, res){
 
 
 /*
-GET /gallery/:id to see single photo
-Each photo should include Delete link for itself
-should include a edit 
+
+  GET /gallery/:id to see single photo
+  Each photo should include Delete link for itself
+  should include a edit 
+
 */
 
 // params id accesses whatever is after the gallery/
 app.get('/gallery/:id', function (req, res){
-  Image.findOne({_id:req.params.id},function (err, image){
+  _Image.findOne({_id:req.params.id},function (err, image){
     if (err){
       throw err;
     }
     if (image){
 // find all images except for the image that matches :id
-      Image.find({_id: {'$ne': req.params.id }},function(err,sidebarimages){
+      _Image.find({_id: {'$ne': req.params.id }},function(err,sidebarimages){
         if (err){
           throw err;
         }
@@ -152,21 +226,16 @@ app.get('/gallery/:id', function (req, res){
 
 
 
-/*
-GET new photo see new photo form
-need
-Author: text
-Link: text img url
-description: text area
-*/
 
 
 /*
-POST to create a new gallery photo
+
+  POST to create a new gallery photo
+
 */
 
 app.post('/gallery',function (req, res){
-  var image = new Image(req.body);
+  var image = new _Image(req.body);
   image.save(function (err, image){
     if (err){
       throw err;
@@ -177,15 +246,13 @@ app.post('/gallery',function (req, res){
 
 
 /*
-GET gallery :id/edit  to see edit form gallery photo indenfified
-by id param
-fields author:
-link:
-description:
+
+  Get the image by id, render edit template edit.jade, pass the image as a local (just like other route)
+
 */
-// get the image by id, render edit template edit.jade, pass the image as a local (just like other route)
+
 app.get('/gallery/:id/edit', function (req, res){
-  Image.findOne({_id:req.params.id},function (err, image){
+  _Image.findOne({_id:req.params.id},function (err, image){
     if (err){
       throw err;
     }
@@ -199,14 +266,15 @@ app.get('/gallery/:id/edit', function (req, res){
 
 
 
+/*
 
-// ?PUt gallery/:id updates single gallery photo identifiedy id param
+  Put gallery/:id updates single gallery photo identified by id param
 
-
+*/
 
 app.put('/gallery/:id', function (req, res){
   console.log(req.body)
-  Image.findOne({_id:req.params.id},function (err, image){
+  _Image.findOne({_id:req.params.id},function (err, image){
     if (err){
       throw err;
     }
@@ -236,7 +304,7 @@ app.put('/gallery/:id', function (req, res){
  
 app.delete('/gallery/:id', function (req, res){
   console.log("delete",req.params.id);
-  Image.findOneAndRemove({_id:req.params.id},function (err,image){
+  _Image.findOneAndRemove({_id:req.params.id},function (err,image){
     if (err){
       throw err;
     }
@@ -259,6 +327,8 @@ app.get('/secretRoom', ensureAuthenticated, function (req, res){
   res.send("welcome to the secret room")
 
 });
+
+
 function ensureAuthenticated(req, res, next){
   console.log(req.user)
   console.log(req.isAuthenticated())
@@ -267,6 +337,9 @@ function ensureAuthenticated(req, res, next){
   }
   res.redirect('/login');
 }
+
+
+
 app.get('/registration', function (req, res){
   res.render("registration.jade")
 });
