@@ -28,3 +28,4 @@ node_modules
 .lock-wscript
 bower_components
 node_modules
+*.DS_Store
