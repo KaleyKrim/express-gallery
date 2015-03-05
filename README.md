@@ -1,11 +1,5 @@
 Express-Gallery
 ===============
-To run this app, go to app/server/ then run `DBPASS="saltnpepper" gulp`
-npm install 
-
-
-
-
 
 MEH stack - Mongo Express and HTML5 
 
