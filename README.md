@@ -1,10 +1,10 @@
-Express-Gallery
+Express Gallery
 ===============
 
-MEH stack - Mongo Express and HTML5 
+Express, Sequelize, HTML5, stored on PostgreSQL
 
-Use the MEH stack plus *almost* any other library or templating engines you want to fulfill the requirements.  
-recommended: sass, jade, mongoose, bower, jQuery, foundation.  
+Use the Express, Sequelize, and *almost* any other library or templating engines you want to fulfill the requirements.  
+recommended: jade, bower, sass, foundation.  
 helpful: livereload, gulp for watching compiling sass
 
 ---
@@ -38,7 +38,7 @@ Match the layout as close as you can, using free and open fonts and graphics.
 
 ---
 
-#### Layout
-hard because  
-does not have tablet layout  
-uses a background image that is not included, you will have to find something similar (subtlepatterns.com)  
+#### Responsive Layout
+
+- does not have tablet layout  
+- uses a background image that is not included, you will have to find something similar (subtlepatterns.com)  
