@@ -16,7 +16,7 @@ Any user should be able to access these routes:
 - `GET /gallery/:id` to see a single gallery photo
   - each gallery photo should include a link to delete this gallery photo
   - each gallery photo should include a link to edit this gallery photo
-- `GET /new_photo` to see a "new photo" form
+- `GET /gallery/new` to see a "new photo" form
   - the form fields are:
     - `author` : Text
     - `link` : Text (the image url)
