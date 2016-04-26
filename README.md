@@ -4,7 +4,7 @@ Express Gallery
 Express, Sequelize, HTML5, stored on PostgreSQL
 
 Use the Express, Sequelize, and *almost* any other library or templating engines you want to fulfill the requirements.
-recommended: jade, bower, sass, foundation.
+recommended: jade and sass.
 helpful: livereload, gulp for watching compiling sass
 
 ---
