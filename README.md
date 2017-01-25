@@ -44,11 +44,11 @@ Match the layout as close as you can, using free and open fonts and graphics.
 
 #### Stretch Goals
 
-Once you have finished with all of the requirements outlined above, you are encouraged to work on these additional stretch goals to improve the quality and usablity of your application
+Once you have finished with all of the requirements outlined above, you are encouraged to work on these additional stretch goals to improve the quality and usablity of your application.
 
-- Make friendly error messages for users attempting to login using [connect-flash](https://github.com/jaredhanson/connect-flash)
-- Make the site beautiful with SCSS, no external libraries are allowed, be sure to use vanilla CSS and JavaScript
-- Add intergration tests using Mocha and Chai, and End to End tests using SuperTest
-- Create an admin role, that has elevated privledges.
-- Get a code review :sparkles:
+- Make friendly error messages for users attempting to login using [connect-flash](https://github.com/jaredhanson/connect-flash).
+- Make your site beautiful with SCSS. Note: No external libraries are allowed, be sure to use vanilla SCSS and/or JavaScript to style your application.
+- Add intergration tests using Mocha and Chai, and end-to-end tests using SuperTest.
+- Create an Admin role, that has elevated privledges. (i.e. Admin can delete users, Admin can edit/delete any post, etc.).
+- Get a code review from an instructor or TA :sparkles:
 
