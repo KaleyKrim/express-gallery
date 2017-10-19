@@ -50,18 +50,26 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   let newInfo = req.body;
-  let photoId = req.params;
-  console.log('photoId', photoId);
+  let photoId = req.params.id;
   return Photo.findById(photoId)
   .then(photo => {
-    console.log('photo.datavalues', photo.dataValues);
     return Photo.update(newInfo, {
       where: [{id: photoId}]
     });
   });
 });
 
-//edit an existing photo in gallery by id
+router.delete('/:id', (req, res) => {
+  let photoId = req.params.id;
+  return Photo.findById(photoId)
+  .then(photo => {
+    return Photo.destroy({
+      where: [{id: photoId}]
+    });
+  });
+});
+
+//render edit page for photos
 router.get('/:id/edit', (req, res) => {
   const photoId = req.params.id;
   console.log(req.params.id);
