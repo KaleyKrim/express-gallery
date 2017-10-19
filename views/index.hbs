@@ -1,1 +1,11 @@
-index.hbs
+<h1 id="title">KK Gallery</h1>
+<div class="photos">
+  {{#each photos}}
+  <div>
+    <div class="imgs" style="background-image: url({{link}}); height: 200px; width: 300px;"></div>
+    <div class="author">{{author}}</div>
+    <div class="link">{{link}}</div>
+  </div>
+  <br>
+  {{/each}}
+</div>
