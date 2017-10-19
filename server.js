@@ -22,6 +22,7 @@ app.engine('.hbs', exphbs({
 
 app.set('view engine', '.hbs');
 
+//get all photos in gallery
 app.get('/', (req, res) => {
   return Photo.findAll()
   .then(photos => {
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
   });
 });
 
+//create new gallery photo and post to gallery
 app.post('/gallery', (req, res) => {
   const author = req.body.author;
   const link = req.body.link;
@@ -45,11 +47,13 @@ app.post('/gallery', (req, res) => {
       console.log(err);
     });
 });
-//render new photo handlebars
+
+//get new photo
 app.get('/gallery/new', (req, res) => {
   res.render('./new');
 });
 
+//get photo by id in gallery
 app.get('/gallery/:id', (req, res) => {
   const photoId = req.params.id;
 
@@ -61,7 +65,17 @@ app.get('/gallery/:id', (req, res) => {
   });
 });
 
-app.get('/gallery/:id/edit', (req, res) => {
+app.put('/:id', (req, res) => {
+  let newInfo = req.body;
+  let photoId = req.params.id;
+  console.log(req.params);
+  return Photo.update(newInfo, {
+    where: {id: photoId}
+  });
+});
+
+//edit an existing photo in gallery by id
+app.get('/:id/edit', (req, res) => {
   const photoId = req.params.id;
   return Photo.findById(photoId)
     .then(photo => {

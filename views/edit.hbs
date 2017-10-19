@@ -1,7 +1,7 @@
 {{!-- EDIT --}}
 
 <div id="content">
-  <form action="../gallery/{{id}}?_method=put" method="post" enctype="application/x-www-form-urlencoded">
+  <form action="../gallery{{id}}?_method=put" method="post" enctype="application/x-www-form-urlencoded">
     Author: <br><input type="text" name="author" value="{{author}}"><br><br>
     Description: <br><textarea name="description" cols="80" rows="10">{{description}}</textarea><br><br>
     <input type="submit" value="submit">
