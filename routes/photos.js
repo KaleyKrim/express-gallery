@@ -55,6 +55,9 @@ router.put('/:id', (req, res) => {
   .then(photo => {
     return Photo.update(newInfo, {
       where: [{id: photoId}]
+    })
+    .then(photo => {
+      return res.redirect(`/gallery/${photoId}`);
     });
   });
 });
@@ -65,6 +68,9 @@ router.delete('/:id', (req, res) => {
   .then(photo => {
     return Photo.destroy({
       where: [{id: photoId}]
+    })
+    .then(photo => {
+      return res.redirect('/gallery');
     });
   });
 });
