@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const port = process.env.port || 8080;
 const db = require('./models');
 const Photo = db.photo;
@@ -11,6 +12,8 @@ const Photo = db.photo;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
+
+app.use(methodOverride('_method'));
 
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
@@ -56,6 +59,15 @@ app.get('/gallery/:id', (req, res) => {
     let locals = photo.dataValues;
     return res.render('./photo', locals);
   });
+});
+
+app.get('/gallery/:id/edit', (req, res) => {
+  const photoId = req.params.id;
+  return Photo.findById(photoId)
+    .then(photo => {
+      let locals = photo.dataValues;
+      return res.render('./edit', locals);
+    });
 });
 
 app.listen(port, () => {
