@@ -9,6 +9,10 @@ const User = db.user;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// app.get('/', (req, res) => {
+
+// });
+
 app.listen(port, () => {
   db.sequelize.sync({ force: false });
   console.log(`Server listening on port: '${port}`);
