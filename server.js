@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
   return Photo.findAll()
   .then(photos => {
     let locals = { photos : photos};
+    console.log('photos', photos);
     return res.render('./index', locals);
   });
 });
@@ -35,7 +36,7 @@ app.post('/gallery', (req, res) => {
   return Photo.create({ author: author, link: link, description: description})
     .then(newPhoto => {
       //res.render()
-      return res.json(newPhoto);
+      return res.redirect('/');
     })
     .catch((err) => {
       console.log(err);
