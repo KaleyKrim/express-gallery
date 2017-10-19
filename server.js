@@ -47,6 +47,17 @@ app.get('/gallery/new', (req, res) => {
   res.render('./new');
 });
 
+app.get('/gallery/:id', (req, res) => {
+  const photoId = req.params.id;
+
+  return Photo.findById(photoId)
+  .then(photo => {
+    console.log('photo.datavalues', photo.dataValues);
+    let locals = photo.dataValues;
+    return res.render('./photo', locals);
+  });
+});
+
 app.listen(port, () => {
   db.sequelize.sync({ force: false });
   console.log(`Server listening on port: '${port}`);
