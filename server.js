@@ -10,12 +10,22 @@ const Photo = db.photo;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname:'.hbs'
 }));
 
 app.set('view engine', '.hbs');
+
+app.get('/', (req, res) => {
+  return Photo.findAll()
+  .then(photos => {
+    let locals = { photos : photos};
+    return res.render('./index', locals);
+  });
+});
 
 app.post('/gallery', (req, res) => {
   const author = req.body.author;
@@ -25,6 +35,9 @@ app.post('/gallery', (req, res) => {
   return Photo.create({ author: author, link: link, description: description})
     .then(newPhoto => {
       return res.json(newPhoto);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 
