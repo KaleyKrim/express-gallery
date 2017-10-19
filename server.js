@@ -34,11 +34,16 @@ app.post('/gallery', (req, res) => {
 
   return Photo.create({ author: author, link: link, description: description})
     .then(newPhoto => {
+      //res.render()
       return res.json(newPhoto);
     })
     .catch((err) => {
       console.log(err);
     });
+});
+//render new photo handlebars
+app.get('/gallery/new', (req, res) => {
+  res.render('./new');
 });
 
 app.listen(port, () => {
