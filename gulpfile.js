@@ -1,22 +1,25 @@
-var gulp = require('gulp')
-var scss = require('gulp-sass')
-var browserSync = require('browser-sync').create()
+var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
+var livereload = require('gulp-livereload');
+var sass = require('gulp-sass');
 
-browserSync.init({
-  server: {
-    baseDir: "./public"
-  }
+gulp.task('sass', function () {
+  return gulp.src("./scss/app.scss")
+    .pipe(sass())
+    .pipe(gulp.dest("./public/css"))
+    .pipe(livereload());
 });
 
-gulp.task('scss', function () {
-  return gulp.src('./scss/*.scss')
-    .pipe(scss())
-    .pipe(gulp.dest('./public/css'));
+gulp.task('watch', function() {
+    livereload.listen();
+    gulp.watch('./scss/**', ['sass']);
+
 });
 
-gulp.task('watch', function (){
-  gulp.watch('./scss/**/*', ['scss'])
-  gulp.watch('./public/**/*').on('change', browserSync.reload);
-})
+gulp.task('server',function(){
+    nodemon({
+        'script': './server.js'
+    });
+});
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['server','watch']);

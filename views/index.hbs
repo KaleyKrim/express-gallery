@@ -1,9 +1,12 @@
+<div><a href="/register">Register</a></div>
+<div><a href="/login">Login</a></div>
+
 {{> header}}
-<div id="banner"></div>
+<div id="banner" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/15/07/02/sakura-2642958__340.jpg); height: 300px; width: 900px;"></div>
 <div id="content">
   {{#each photos}}
   <div class="image">
-    <div class="img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div>
+    <a href ="/gallery/{{id}}"><div class="img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div></a>
     <div class="author">{{author}}</div>
     <div class="link">{{link}}</div>
   </div>

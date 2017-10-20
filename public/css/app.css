@@ -1,1 +1,26 @@
-app.css
+body {
+  background-color: lightpink;
+  margin: 70px; }
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+#title {
+  font-family: 'Karla', sans-serif;
+  font-size: 40px; }
+
+#intro {
+  font-family: 'Roboto', sans-serif; }
+
+#banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px; }
+
+#content {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: space-around; }
