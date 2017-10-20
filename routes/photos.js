@@ -17,11 +17,12 @@ router.get('/', (req, res) => {
 
 //create new gallery photo and post to gallery
 router.post('/', (req, res) => {
+  console.log('req.user', req.user);
   const author = req.body.author;
   const link = req.body.link;
   const description = req.body.description;
 
-  return Photo.create({ author: author, link: link, description: description})
+  return Photo.create({ author: author, link: link, description: description, userId: req.user.id})
     .then(newPhoto => {
       // //res.render()
       return res.redirect('/gallery');
