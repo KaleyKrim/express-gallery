@@ -1,20 +1,38 @@
 body{
-  background-color: lightpink;
-  margin: 70px;
+  margin: 150px;
+  font-family: 'Roboto', sans-serif;
+  color: #8E8E8E;
+}
+
+#register{
+  display: flex;
+  justify-content: flex-end;
 }
 #header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: #8E8E8E dotted 1px;
 }
 
 #title{
   font-family: 'Karla', sans-serif;
+  color: #8E8E8E;
   font-size: 40px;
+  padding-right: 10px;
 }
 
 #intro{
+  border-left: solid 1px #8E8E8E;
+  padding-left: 10px;
   font-family: 'Roboto', sans-serif;
+  height: 75px;
+}
+
+a{
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  color: #8E8E8E;
 }
 
 #banner{
@@ -29,4 +47,15 @@ body{
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-around;
+  border-top: #8E8E8E solid 1px;
+}
+
+#content {
+  border-bottom: #8E8E8E 1px solid;
+}
+
+.img{
+  background-size: contain;
+  background-position: center;
+
 }
