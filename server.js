@@ -113,7 +113,7 @@ app.post('/register', (req, res) => {
         password: hash
       })
       .then((user) => {
-        console.log(user);
+        console.log('user', user);
         res.redirect('/');
       })
       .catch((err) => { return res.send('Nope nope nope'); });
