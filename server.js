@@ -68,7 +68,7 @@ passport.use(new LocalStrategy(function(username, password, done){
       .then(res => {
         console.log(res);
         if(res){
-          return done(null, user);
+          return done(null, user); //<<<--limit user access
         }else{
           return done(null, false, {message: 'bad username or password'});
         }
