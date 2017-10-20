@@ -1,21 +1,19 @@
 {{> header}}
-<div id="content">
+<div id="detailContent">
   <div id="details">
   {{author}}
   {{link}}
-  <div class="imgs" style="background-image: url({{link}}); height: 400px; width: 500px;"></div>
+  <div class="previewImg" style="background-image: url({{link}}); height: 400px; width: 600px;"></div>
   {{description}}
   </div>
   <div id="preview">
     {{!-- image preview gallery (3)--}}
+    <div class="thumbnail">
+      <a href ="/gallery/{{id}}"><div class="thumbnail_img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div></a>
+      <div class="author">{{author}}</div>
+    </div>
   </div>
+  <br>
+  <br>
   <a href="/gallery/{{id}}/edit">EDIT photo</a>
 </div>
-
-
-{{!-- <div>
-  <form action="/gallery/{{id}}?_method=DELETE" method="POST">
-    <input type="submit" value = "Delete Photo">
-  </form>
-
-</div> --}}
