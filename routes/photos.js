@@ -54,12 +54,14 @@ router.put('/:id', (req, res) => {
   let photoId = req.params.id;
   return Photo.findById(photoId)
   .then(photo => {
-    return Photo.update(newInfo, {
-      where: [{id: photoId}]
-    })
-    .then(photo => {
-      return res.redirect(`/gallery/${photoId}`);
-    });
+    if(req.user.id === photo.userId){
+      return Photo.update(newInfo, {
+        where: [{id: photoId}]
+      })
+      .then(photo => {
+        return res.redirect(`/gallery/${photoId}`);
+      });
+    }
   });
 });
 
@@ -67,12 +69,14 @@ router.delete('/:id', (req, res) => {
   let photoId = req.params.id;
   return Photo.findById(photoId)
   .then(photo => {
-    return Photo.destroy({
-      where: [{id: photoId}]
-    })
-    .then(photo => {
-      return res.redirect('/gallery');
-    });
+    if(req.user.id === photo.userId){
+      return Photo.destroy({
+        where: [{id: photoId}]
+      })
+      .then(photo => {
+        return res.redirect('/gallery');
+      });
+    }
   });
 });
 
