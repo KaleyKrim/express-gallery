@@ -13,6 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
+const redis = require('connect-redis');
 
 const Photo = db.photo;
 const User = db.user;
@@ -31,6 +32,7 @@ app.set('view engine', '.hbs');
 
 
 app.use(session({
+  store: new redis(),
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
