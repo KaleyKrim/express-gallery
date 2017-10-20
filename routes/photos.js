@@ -41,10 +41,14 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   const photoId = req.params.id;
 
-  return Photo.findById(photoId)
+  return Photo.findAll({
+    where: {
+      id: [(photoId), (parseInt(photoId)+1), (parseInt(photoId)+2), (parseInt(photoId+3))]
+    },
+  })
   .then(photo => {
-    console.log('photo.datavalues', photo.dataValues);
-    let locals = photo.dataValues;
+    console.log('photo', photo);
+    let locals = { mainPhoto : photo[0], photos : [photo[1], photo[2], photo[3]]};
     return res.render('./photo', locals);
   });
 });
