@@ -13,7 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
-const redis = require('connect-redis');
+const redis = require('connect-redis')(session);
 
 const Photo = db.photo;
 const User = db.user;
