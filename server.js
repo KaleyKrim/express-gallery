@@ -139,6 +139,6 @@ app.use('/gallery', photosRoutes);
 
 
 app.listen(port, () => {
-  db.sequelize.sync({ force: false });
+  db.sequelize.sync({ force: true });
   console.log(`Server listening on port: '${port}`);
 });
