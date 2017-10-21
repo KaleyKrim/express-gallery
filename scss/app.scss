@@ -33,7 +33,7 @@ body{
 #title{
   font-family: 'Karla', sans-serif;
   color: #8E8E8E;
-  font-size: 225%;
+  font-size: 300%;
   font-weight: 800;
   padding-right: 150px;
   padding-top: 5px;
@@ -65,7 +65,7 @@ a{
   background-position: center;
   margin-bottom: 20px;
   margin-right: 50px;
-  height: 20vw;
+  height: 35vw;
   width: 80vw;
 }
 
@@ -94,7 +94,7 @@ a{
   justify-content: space-between;
 
   #details{
-    line-height: 10px;
+    line-height: 20px;
     .author{
       font-size: 120%;
     }
