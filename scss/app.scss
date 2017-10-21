@@ -1,13 +1,27 @@
 body{
-  margin: 150px;
+  margin: 50px;
   font-family: 'Roboto', sans-serif;
   color: #8E8E8E;
 }
 
-#register{
-  display: flex;
-  justify-content: flex-end;
+#register {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
+#login {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nav{
+  display: flex;
+  justify-content: space-between;
+}
+
 #header {
   display: flex;
   justify-content: space-between;
@@ -18,27 +32,32 @@ body{
     font-family: 'Karla', sans-serif;
     color: #8E8E8E;
     font-size: 70px;
-    padding-right: 200px;
+    font-weight: 800;
+    padding-right: 150px;
+    padding-top: 5px;
   }
   #intro{
     font-size: 12px;
     border-left: dotted 1px #8E8E8E;
     padding-left: 10px;
+    padding-top: 5px;
     font-family: 'Roboto', sans-serif;
-    height: 75px;
+    height: 85px;
+    width: 200px;
+    overflow: hidden;
   }
 }
 
 a{
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  color: #8E8E8E;
+  color: #FFC0D5;
+  padding: 5px;
 }
 
 #banner{
   background-repeat: no-repeat;
   background-size: cover;
-  // background-attachment: fixed;
   background-position: center;
   margin-bottom: 20px;
 }
@@ -50,6 +69,10 @@ a{
   flex-wrap: wrap;
   border-top: #8E8E8E solid 1px;
   border-bottom: #8E8E8E 1px solid;
+  .image{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .img{
       background-size: contain;
       background-position: center;
