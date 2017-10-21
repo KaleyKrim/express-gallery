@@ -98,8 +98,8 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/secret',
-  failureRedirect: '/'
+  successRedirect: '/gallery',
+  failureRedirect: '/login'
 }));
 
 app.get('/logout', (req, res) => {
