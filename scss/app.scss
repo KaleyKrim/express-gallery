@@ -3,6 +3,8 @@ body{
   font-family: 'Roboto', sans-serif;
   color: #8E8E8E;
   font-size: 16px;
+  // background-image:
+  background-repeat: no-repeat;
 }
 
 #register {
@@ -125,6 +127,11 @@ a{
   display:none;
 }
 
+// error message
+// #message {
+//   font-size:
+// }
+
 @media screen and (min-width: 480px){
   #intro{
     display: block;
@@ -138,10 +145,11 @@ a{
   }
 
   #banner {
-    width: 85vw;
+    width: 87vw;
   }
 
   #preview{
     display: flex;
   }
 }
+

@@ -2,7 +2,8 @@ body {
   margin: 50px;
   font-family: 'Roboto', sans-serif;
   color: #8E8E8E;
-  font-size: 16px; }
+  font-size: 16px;
+  background-repeat: no-repeat; }
 
 #register {
   width: 500px;
@@ -110,6 +111,6 @@ a {
   #header {
     padding-bottom: 80px; }
   #banner {
-    width: 85vw; }
+    width: 87vw; }
   #preview {
     display: flex; } }

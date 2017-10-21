@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
   .then(photos => {
     let locals = { photos : photos};
     return res.render('./index', locals);
+  })
+  .catch((err) => {
+    let message = { message : 'Unable to locate your photo. Please try again.'};
+    res.render('./error', message);
   });
 });
 
@@ -21,15 +25,21 @@ router.post('/', (req, res) => {
   const author = req.body.author;
   const link = req.body.link;
   const description = req.body.description;
-
-  return Photo.create({ author: author, link: link, description: description, userId: req.user.id})
+//link must be an http url
+  if(link.includes('http')) {
+    return Photo.create({ author: author, link: link, description: description, userId: req.user.id})
     .then(newPhoto => {
       // //res.render()
       return res.redirect('/gallery');
     })
     .catch((err) => {
-      console.log(err);
+      let message = { message : 'Sorry, we cannot accept your submission at this time. Please try again'};
+      res.render('./error', message);
     });
+  }else{
+    let message = { message: 'Please submit a valid url'};
+    res.render('./error', message);
+  }
 });
 
 //get new photo

@@ -118,7 +118,10 @@ app.post('/register', (req, res) => {
         console.log('user', user);
         res.redirect('/');
       })
-      .catch((err) => { return res.send('Nope nope nope'); });
+      .catch((err) => {
+        let message = { message : 'Sorry, please try your username and password again'};
+        return res.render('./error', message);
+      });
     });
   });
 });
