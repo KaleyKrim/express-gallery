@@ -2,10 +2,12 @@
   document.write('<a href="' + document.referrer + '">< Back</a>');
 </script>
 {{> header}}
+<h2 id="regText">Please enter a username and password to register</h2>
+<br>
 <div id="register">
  <form action="/register" method="POST">
     <input type="text" name="username" placeholder="username">
-    <input type="password" name="password">
+    <input type="password" name="password" placeholder="password">
     <input type="submit"></input>
   </form>
 </div>
