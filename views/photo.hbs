@@ -1,23 +1,26 @@
+{{> back}}
 {{> header}}
 <div id="detailContent">
   <div id="details">
-{{mainPhoto.author}}
-  {{mainPhoto.link}}
-  <div class="imgs" style="background-image: url({{mainPhoto.link}}); height: 400px; width: 500px;"></div>
-  {{mainPhoto.description}}
+    <div class="author">{{mainPhoto.author}}</div>
+   {{!--  {{mainPhoto.link}} --}}
+    <div class="previewImg" style="background-image: url({{mainPhoto.link}}); height: 450px; width: 700px;">
+    </div>
+    {{mainPhoto.description}}
+    <br>
+    <br>
+    <a href="/gallery/{{mainPhoto.id}}/edit">EDIT photo</a>
   </div>
-  <div id="preview">
 
+  <div id="preview">
     {{#each photos}}
-      <div class="image">
-        <a href ="/gallery/{{id}}"><div class="img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div></a>
+      <div class="thumbnail">
+        <a href ="/gallery/{{id}}"><div class="thumbnail_img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div></a>
+        <br>
         <div class="author">{{author}}</div>
-        <div class="link">{{link}}</div>
+       {{!--  <div class="link">{{link}}</div> --}}
       </div>
       <br>
     {{/each}}
   </div>
-  <br>
-  <br>
-  <a href="/gallery/{{id}}/edit">EDIT photo</a>
 </div>
