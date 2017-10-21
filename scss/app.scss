@@ -47,6 +47,7 @@ a{
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   border-top: #8E8E8E solid 1px;
   border-bottom: #8E8E8E 1px solid;
   .img{
@@ -60,11 +61,15 @@ a{
 #detailContent{
   display: flex;
   width: 600px;
+  justify-content: space-between;
+
   #details{
+    line-height: 10px;
+    .author{
+      font-size: 20px;
+    }
     width: 600px;
     .previewImg{
-    margin-top: 20px;
-    margin-bottom: 40px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -72,6 +77,12 @@ a{
   }
   #preview{
     .thumbnail{
+      line-height: 10px;
+      padding-left: 200px;
+      .author{
+        font-size: 20px;
+        padding-left: 100px;
+      }
       .thumbnail_img{
         background-size: contain;
         background-position: center;
