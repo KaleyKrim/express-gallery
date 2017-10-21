@@ -2,6 +2,7 @@ body{
   margin: 50px;
   font-family: 'Roboto', sans-serif;
   color: #8E8E8E;
+  font-size: 16px;
 }
 
 #register {
@@ -27,32 +28,35 @@ body{
   justify-content: space-between;
   align-items: center;
   border-top: #8E8E8E dotted 1px;
-  padding-bottom: 80px;
-  #title{
-    font-family: 'Karla', sans-serif;
-    color: #8E8E8E;
-    font-size: 70px;
-    font-weight: 800;
-    padding-right: 150px;
-    padding-top: 5px;
-  }
-  #intro{
-    font-size: 12px;
-    border-left: dotted 1px #8E8E8E;
-    padding-left: 10px;
-    padding-top: 5px;
-    font-family: 'Roboto', sans-serif;
-    height: 85px;
-    width: 200px;
-    overflow: hidden;
-  }
+  padding-bottom: 10px;
+}
+#title{
+  font-family: 'Karla', sans-serif;
+  color: #8E8E8E;
+  font-size: 225%;
+  font-weight: 800;
+  padding-right: 150px;
+  padding-top: 5px;
+}
+
+#intro{
+  display: none;
+  font-size: 75%;
+  border-left: dotted 1px #8E8E8E;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  height: 85px;
+  width: 200px;
+  overflow: hidden;
 }
 
 a{
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   color: #FFC0D5;
-  padding: 5px;
+  padding: 1px;
+  font-size: 90%;
 }
 
 #banner{
@@ -60,6 +64,9 @@ a{
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
+  margin-right: 50px;
+  height: 20vw;
+  width: 80vw;
 }
 
 #content{
@@ -89,7 +96,7 @@ a{
   #details{
     line-height: 10px;
     .author{
-      font-size: 20px;
+      font-size: 120%;
     }
     width: 600px;
     .previewImg{
@@ -98,12 +105,12 @@ a{
     background-repeat: no-repeat;
     }
   }
-  #preview{
+
     .thumbnail{
       line-height: 10px;
       padding-left: 200px;
       .author{
-        font-size: 20px;
+        font-size: 120%;
         padding-left: 100px;
       }
       .thumbnail_img{
@@ -112,5 +119,29 @@ a{
         background-repeat: no-repeat;
       }
     }
+}
+
+#preview{
+  display:none;
+}
+
+@media screen and (min-width: 480px){
+  #intro{
+    display: block;
+  }
+  #title{
+    font-size: 450%;
+  }
+
+  #header{
+    padding-bottom: 80px;
+  }
+
+  #banner {
+    width: 85vw;
+  }
+
+  #preview{
+    display: flex;
   }
 }
