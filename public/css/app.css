@@ -1,7 +1,8 @@
 body {
   margin: 50px;
   font-family: 'Roboto', sans-serif;
-  color: #8E8E8E; }
+  color: #8E8E8E;
+  font-size: 16px; }
 
 #register {
   width: 500px;
@@ -22,35 +23,42 @@ body {
   justify-content: space-between;
   align-items: center;
   border-top: #8E8E8E dotted 1px;
-  padding-bottom: 80px; }
-  #header #title {
-    font-family: 'Karla', sans-serif;
-    color: #8E8E8E;
-    font-size: 70px;
-    font-weight: 800;
-    padding-right: 150px;
-    padding-top: 5px; }
-  #header #intro {
-    font-size: 12px;
-    border-left: dotted 1px #8E8E8E;
-    padding-left: 10px;
-    padding-top: 5px;
-    font-family: 'Roboto', sans-serif;
-    height: 85px;
-    width: 200px;
-    overflow: hidden; }
+  padding-bottom: 10px; }
+
+#title {
+  font-family: 'Karla', sans-serif;
+  color: #8E8E8E;
+  font-size: 225%;
+  font-weight: 800;
+  padding-right: 150px;
+  padding-top: 5px; }
+
+#intro {
+  display: none;
+  font-size: 75%;
+  border-left: dotted 1px #8E8E8E;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  height: 85px;
+  width: 200px;
+  overflow: hidden; }
 
 a {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   color: #FFC0D5;
-  padding: 5px; }
+  padding: 1px;
+  font-size: 90%; }
 
 #banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-right: 50px;
+  height: 20vw;
+  width: 80vw; }
 
 #content {
   font-family: 'Roboto', sans-serif;
@@ -75,18 +83,33 @@ a {
     line-height: 10px;
     width: 600px; }
     #detailContent #details .author {
-      font-size: 20px; }
+      font-size: 120%; }
     #detailContent #details .previewImg {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat; }
-  #detailContent #preview .thumbnail {
+  #detailContent .thumbnail {
     line-height: 10px;
     padding-left: 200px; }
-    #detailContent #preview .thumbnail .author {
-      font-size: 20px;
+    #detailContent .thumbnail .author {
+      font-size: 120%;
       padding-left: 100px; }
-    #detailContent #preview .thumbnail .thumbnail_img {
+    #detailContent .thumbnail .thumbnail_img {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat; }
+
+#preview {
+  display: none; }
+
+@media screen and (min-width: 480px) {
+  #intro {
+    display: block; }
+  #title {
+    font-size: 450%; }
+  #header {
+    padding-bottom: 80px; }
+  #banner {
+    width: 85vw; }
+  #preview {
+    display: flex; } }
