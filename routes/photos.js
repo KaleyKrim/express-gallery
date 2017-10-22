@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 //create new gallery photo and post to gallery
 router.post('/', (req, res) => {
 
-  const author = req.body.author;
+  const author = req.user.username;
   const link = req.body.link;
   const description = req.body.description;
 
