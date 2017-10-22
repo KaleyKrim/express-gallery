@@ -9,8 +9,12 @@ body{
   font-size: 16px;
 }
 
-#editPhoto{
-
+#previewImg{
+  height: 200px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 #regText{
@@ -35,8 +39,8 @@ body{
 }
 
 #nav{
-  display: flex;
-  justify-content: space-between;
+  margin-left: 90%;
+  display: inline-block;
 }
 
 #header {
@@ -48,10 +52,14 @@ body{
 #title{
   font-family: 'Karla', sans-serif;
   color: $dark;
-  font-size: 300%;
+  font-size: 245%;
   font-weight: 800;
   padding-right: 5%;
   padding-top: 5px;
+}
+
+#details{
+  width: 300px;
 }
 
 #intro{
@@ -131,7 +139,6 @@ a:hover{
     .author{
       font-size: 90%;
     }
-    width: 600px;
     .previewImg{
     background-size: contain;
     background-position: center;
@@ -177,6 +184,17 @@ a:hover{
 }
 
 @media screen and (min-width: 480px){
+  #previewImg{
+    height: 450px;
+    width: 700px;
+  }
+
+  #nav{
+    margin-left: 0%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   a{
     font-size: 100%;
   }
@@ -197,6 +215,9 @@ a:hover{
 
   #preview{
     display: block;
+  }
+  #details{
+    width: 600px;
   }
 }
 

@@ -4,6 +4,13 @@ body {
   color: black;
   font-size: 16px; }
 
+#previewImg {
+  height: 200px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+
 #regText {
   text-align: center; }
 
@@ -21,8 +28,8 @@ body {
   text-align: center; }
 
 #nav {
-  display: flex;
-  justify-content: space-between; }
+  margin-left: 90%;
+  display: inline-block; }
 
 #header {
   display: flex;
@@ -33,10 +40,13 @@ body {
 #title {
   font-family: 'Karla', sans-serif;
   color: black;
-  font-size: 300%;
+  font-size: 245%;
   font-weight: 800;
   padding-right: 5%;
   padding-top: 5px; }
+
+#details {
+  width: 300px; }
 
 #intro {
   display: none;
@@ -103,8 +113,7 @@ a:hover {
   width: 600px;
   justify-content: space-between; }
   #detailContent #details {
-    line-height: 20px;
-    width: 600px; }
+    line-height: 20px; }
     #detailContent #details .author {
       font-size: 90%; }
     #detailContent #details .previewImg {
@@ -142,6 +151,13 @@ a:hover {
   text-align: center; }
 
 @media screen and (min-width: 480px) {
+  #previewImg {
+    height: 450px;
+    width: 700px; }
+  #nav {
+    margin-left: 0%;
+    display: flex;
+    justify-content: space-between; }
   a {
     font-size: 100%; }
   #intro {
@@ -153,4 +169,6 @@ a:hover {
   #banner {
     width: 87vw; }
   #preview {
-    display: block; } }
+    display: block; }
+  #details {
+    width: 600px; } }
