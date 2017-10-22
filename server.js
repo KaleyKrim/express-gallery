@@ -104,7 +104,8 @@ app.post('/login', passport.authenticate('local', {
 
 app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  let message = { message : 'You are now logged out.'};
+  res.render('./error', message);
 });
 
 app.post('/register', (req, res) => {
