@@ -1,19 +1,8 @@
-html {
-  width: 100%;
-  height: 100%;
-  background-image: url("/assets/cloudy-day.png");
-  background-repeat: repeat;
-  background-position: center;
-  background-attachment: center fixed;
-  background-size: cover; }
-
 body {
   margin: 50px;
   font-family: 'Roboto', sans-serif;
-  color: #8E8E8E;
-  font-size: 16px;
-  background-image: url("../asset/cloudy-day.png");
-  background-repeat: no-repeat; }
+  color: black;
+  font-size: 16px; }
 
 #regText {
   text-align: center; }
@@ -28,6 +17,9 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
+#error {
+  text-align: center; }
+
 #nav {
   display: flex;
   justify-content: space-between; }
@@ -36,45 +28,50 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: #8E8E8E dotted 1px;
-  padding-bottom: 10px; }
+  border-top: #8E8E8E dotted 1px; }
 
 #title {
   font-family: 'Karla', sans-serif;
-  color: #8E8E8E;
+  color: black;
   font-size: 300%;
   font-weight: 800;
-  padding-right: 100px;
+  padding-right: 5%;
   padding-top: 5px; }
 
 #intro {
   display: none;
-  font-size: 75%;
+  font-size: 85%;
   border-left: dotted 1px #8E8E8E;
   padding-left: 10px;
   padding-top: 5px;
   font-family: 'Roboto', sans-serif;
   height: 85px;
-  width: 200px;
+  width: 400px;
   overflow: hidden; }
 
 a {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  color: #FFC0D5;
+  color: #ff0f73;
   padding: 1px;
-  font-size: 90%; }
+  font-size: 85%; }
+
+a:hover {
+  color: black; }
 
 #banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
-  margin-right: 50px;
+  margin-bottom: 2%;
+  margin-right: 5%;
+  margin-left: 2%;
   height: 35vw;
   width: 80vw; }
 
 #content {
+  margin: auto;
+  max-width: 1150px;
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-around;
@@ -83,11 +80,23 @@ a {
   border-bottom: #8E8E8E 1px solid; }
   #content .image {
     padding-top: 10px;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    text-align: right;
+    font-size: 90%;
+    line-height: 10px; }
   #content .img {
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    filter: alpha(opacity=80); }
+  #content .img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    -webkit-transition-duration: 400ms;
+    -moz-transition-duration: 400ms;
+    -o-transition-duration: 400ms;
+    transition-duration: 400ms; }
 
 #detailContent {
   display: flex;
@@ -97,7 +106,7 @@ a {
     line-height: 20px;
     width: 600px; }
     #detailContent #details .author {
-      font-size: 120%; }
+      font-size: 90%; }
     #detailContent #details .previewImg {
       background-size: contain;
       background-position: center;
@@ -106,14 +115,24 @@ a {
     line-height: 10px;
     padding-left: 200px; }
     #detailContent .thumbnail .author {
-      font-size: 120%;
+      font-size: 90%;
       padding-left: 100px; }
     #detailContent .thumbnail .thumbnail_img {
       background-size: contain;
       background-position: center;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      filter: alpha(opacity=50); }
+    #detailContent .thumbnail .thumbnail_img:hover {
+      opacity: 1.0;
+      filter: alpha(opacity=100);
+      -webkit-transition-duration: 400ms;
+      -moz-transition-duration: 400ms;
+      -o-transition-duration: 400ms;
+      transition-duration: 400ms; }
 
 #preview {
+  text-align: right;
   display: none; }
 
 #footer {
@@ -123,13 +142,15 @@ a {
   text-align: center; }
 
 @media screen and (min-width: 480px) {
+  a {
+    font-size: 100%; }
   #intro {
     display: block; }
   #title {
     font-size: 450%; }
   #header {
-    padding-bottom: 80px; }
+    padding-bottom: 2%; }
   #banner {
     width: 87vw; }
   #preview {
-    display: flex; } }
+    display: block; } }
