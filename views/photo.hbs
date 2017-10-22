@@ -2,10 +2,16 @@
 {{> header}}
 <div id="detailContent">
   <div id="details">
-    <div class="author">{{mainPhoto.author}}</div>
-   {{!--  {{mainPhoto.link}} --}}
     <div class="previewImg" style="background-image: url({{mainPhoto.link}}); height: 450px; width: 700px;">
     </div>
+    <div class="author">
+      Photo by {{mainPhoto.author}}
+      <br>Posted on {{mainPhoto.createdAt}}
+    </div>
+    <div id="originalLink">
+      <a href ="{{mainPhoto.link}}">See Original</a>
+    </div>
+    <br>
     {{mainPhoto.description}}
     <br>
     <br>
@@ -18,7 +24,6 @@
         <a href ="/gallery/{{id}}"><div class="thumbnail_img" style="background-image: url({{link}}); height: 200px; width: 300px;"></div></a>
         <br>
         <div class="author">{{author}}</div>
-       {{!--  <div class="link">{{link}}</div> --}}
       </div>
       <br>
     {{/each}}

@@ -1,9 +1,14 @@
 {{!-- EDIT --}}
 {{> back}}
-<div id="content">
+<h1 id="title">Edit Photo</h1>
+<div id="editPhoto">
   <form action="/gallery/{{id}}?_method=put" method="post" enctype="application/x-www-form-urlencoded">
     Author: <br><input type="text" name="author" value="{{author}}"><br><br>
     Description: <br><textarea name="description" cols="80" rows="10">{{description}}</textarea><br><br>
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit Changes">
+  </form>
+
+   <form action="/gallery/{{id}}?_method=delete" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="submit" value="Delete Photo">
   </form>
 </div>
