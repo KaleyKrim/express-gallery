@@ -104,13 +104,14 @@ app.post('/login', passport.authenticate('local', {
 
 app.get('/logout', (req, res) => {
   req.logout();
-  res.sendStatus(200);
+  res.redirect('/');
 });
 
 app.post('/register', (req, res) => {
   bcrypt.genSalt(saltRounds, function(err, salt){
     bcrypt.hash(req.body.password, salt, function (err, hash) {
-      User.create({
+      if(req.body.password === req.body.password2){
+        User.create({
         username: req.body.username,
         password: hash
       })
@@ -119,9 +120,13 @@ app.post('/register', (req, res) => {
         res.redirect('/');
       })
       .catch((err) => {
-        let message = { message : 'Sorry, please try your username and password again'};
+        let message = { message : 'Your selected username is invalid or already in use. Please try again.'};
         return res.render('./error', message);
       });
+      }else{
+        let message = { message : 'Please correctly enter your password twice to complete registration!'};
+        return res.render('./error', message);
+      }
     });
   });
 });
