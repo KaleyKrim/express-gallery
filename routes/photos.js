@@ -51,8 +51,11 @@ router.get('/:id', (req, res) => {
   const photoId = req.params.id;
 
   return Photo.findAll({
+    limit: 4,
     where: {
-      id: [(photoId), (parseInt(photoId)+1), (parseInt(photoId)+2), (parseInt(photoId)+3)]
+      id: {
+        gte: photoId
+      }
     },
   })
   .then(photo => {
